@@ -9,10 +9,18 @@ import requests
 # update: xxx@bianfeng.com 2017/11/30
 #         xxx@bianfeng.com 2017/12/01
 #         xxx@bianfeng.com 2017/12/09
+# cookie值(变更):
+#     PHPSESSID='fgemf2rc2dobe1gqvj8vd5ubq4'
+#     gid='1876313855', tj_uid='111316848'
+#     cookie_ip='1944858858,1944858858'
+#     Hm_lvt_299cfc89fdba155674e083d478408f29='1512119077,1512631982,1512634244'
+#     Hm_lvt_103ebb1b832fa07afa5ac4eb9d827ce0='1511935372'
+#     Hm_lpvt_299cfc89fdba155674e083d478408f29='1512700197'
+#     ZQ_GUID='CB6C8915-67D8-2E38-36C5-20CC4C2A9976
 '''
 
 url = 'http://www.zhanqi.tv/api/user/follow.listsbypage'
-payload = {'page': '2', 'num': '8', '_v': '25200430'}
+payload = {'page': '2', 'num': '8', '_v': '25212078'}
 data = {'account': '15068899860', 'password': 'zqcf666'}
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0',
@@ -26,14 +34,14 @@ headers = {
     'Referer': 'https://www.zhanqi.tv/',
     'X-Requested-With': 'XMLHttpRequest'
     }
-cookies = dict(PHPSESSID='h4opsotoe8qv112qgb6q4geaf4',
-               gid='1777701824', tj_uid='108474802',
+cookies = dict(PHPSESSID='fgemf2rc2dobe1gqvj8vd5ubq4',
+               gid='1876313855', tj_uid='111316848',
                cookie_ip='1944858858,1944858858',
-               Hm_lvt_299cfc89fdba155674e083d478408f29='1511863182,1511944454,1512004316',
+               Hm_lvt_299cfc89fdba155674e083d478408f29='1512119077,1512631982,1512634244',
                zq_check_account='M8899860_o65Gsb',
                Hm_lvt_103ebb1b832fa07afa5ac4eb9d827ce0='1511935372',
-               Hm_lpvt_299cfc89fdba155674e083d478408f29='1512021686',
-               ZQ_GUID='6BDC0C4B-A1D9-7501-77F6-15418CFA3DDD'
+               Hm_lpvt_299cfc89fdba155674e083d478408f29='1512700197',
+               ZQ_GUID='CB6C8915-67D8-2E38-36C5-20CC4C2A9976'
                )
 req = requests.post(url, params=payload, data=data, headers=headers, cookies=cookies)
 response = req.json()

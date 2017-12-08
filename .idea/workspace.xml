@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84924572-6cc7-4223-84b7-3ab42bbce6e1" name="Default" comment="" />
+    <list default="true" id="84924572-6cc7-4223-84b7-3ab42bbce6e1" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/自动化测试/day-to-day/20171130_test_login_cookie.py" afterPath="$PROJECT_DIR$/自动化测试/day-to-day/20171130_test_login_cookie.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,10 +12,22 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/PythonDay$20171130_test_login_cookie.coverage" NAME="20171130_test_login_cookie Coverage Results" MODIFIED="1512725078187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/自动化测试/day-to-day" />
     <SUITE FILE_PATH="coverage/PythonDay$requestsCookies.coverage" NAME="requestsCookies Coverage Results" MODIFIED="1511938517965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/爬虫" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="20171130_test_login_cookie.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/自动化测试/day-to-day/20171130_test_login_cookie.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="15" column="80" lean-forward="true" selection-start-line="15" selection-start-column="80" selection-end-line="15" selection-end-column="80" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -31,6 +45,7 @@
         <option value="$PROJECT_DIR$/基础/study20171128.py" />
         <option value="$PROJECT_DIR$/爬虫/doubanMovie20171115.py" />
         <option value="$PROJECT_DIR$/爬虫/requestsCookies.py" />
+        <option value="$PROJECT_DIR$/自动化测试/day-to-day/20171130_test_login_cookie.py" />
       </list>
     </option>
   </component>
@@ -96,7 +111,25 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.requestsCookies">
+  <component name="RunManager" selected="Python.20171130_test_login_cookie">
+    <configuration name="20171130_test_login_cookie" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/自动化测试/day-to-day" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PythonDay" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/自动化测试/day-to-day/20171130_test_login_cookie.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="requestsCookies" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -115,9 +148,14 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Python.requestsCookies" />
+      <item index="1" class="java.lang.String" itemvalue="Python.20171130_test_login_cookie" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.requestsCookies" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.20171130_test_login_cookie" />
+        <item index="1" class="java.lang.String" itemvalue="Python.requestsCookies" />
       </list>
     </recent_temporary>
   </component>
@@ -181,6 +219,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-693">
           <caret line="15" column="35" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/自动化测试/day-to-day/20171130_test_login_cookie.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="80" lean-forward="true" selection-start-line="15" selection-start-column="80" selection-end-line="15" selection-end-column="80" />
+          <folding />
         </state>
       </provider>
     </entry>
