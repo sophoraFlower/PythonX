@@ -1,8 +1,9 @@
 # coding=utf-8
 from selenium import webdriver
 import time
-
-browser = webdriver.Chrome()
+driverOptions = webdriver.ChromeOptions()
+driverOptions.add_argument(r"user-data-dir=C:\Users\Houle\AppData\Local\Google\Chrome\User Data")
+browser = webdriver.Chrome('chromedriver', 0, driverOptions)
 browser.maximize_window()
 time.sleep(6)
 
@@ -81,17 +82,19 @@ for handle in all_handles:
             print('Exception found:', format(e))
         time.sleep(5)
 
-        # flash设置
-        browser.get('chrome://settings/content/siteDetails?site=https://www.zhanqi.tv')
-        browser.find_element_by_xpath('//*[@id="permission"]').click()
-        browser.find_element_by_xpath('//*[@id="allow"]').click()
+    # flash设置
+    # browser.get('chrome://settings/content/siteDetails?site=https://www.zhanqi.tv')
+    # browser.switch_to.frame('list-frame')
+    # flashSet = browser.find_element_by_id('permission').find_element_by_xpath('//*[@id="allow"]').click()
+    # time.sleep(2)
+    # browser.back()
 
-        # 关闭当前窗口
-        # browser.close()
-        # time.sleep(3)
-        # # 输出主窗口句柄
-        # print(now_handle)
-        # # 返回主窗口
-        # browser.switch_to.window(now_handle)
-        # time.sleep(2)
+    # 关闭当前窗口
+    # browser.close()
+    # time.sleep(3)
+    # 输出主窗口句柄
+    # print('#######  ' + now_handle)
+    # # 返回主窗口
+    # browser.switch_to.window(now_handle)
+    # time.sleep(2)
 
