@@ -1,0 +1,185 @@
+1513047207656	geckodriver	INFO	geckodriver 0.19.1
+1513047207662	geckodriver	INFO	Listening on 127.0.0.1:55191
+1513047209722	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\caofei\\AppData\\Local\\Temp\\rust_mozprofile.pu6DKQUOgIjB"
+1513047210192	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+[Child 7548, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7548, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1513047211131	Marionette	INFO	Listening on port 55197
+1513047211247	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513047211290	Marionette	DEBUG	Register listener.js for window 4294967297
+1513047211362	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513047211722	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513047211722	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1513047213097	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.zhanqi.tv/"
+1513047216554	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.zhanqi.tv/"
+1513047219692	Marionette	DEBUG	Register listener.js for window 4294967301
+1513047219735	Marionette	DEBUG	Register listener.js for window 4294967304
+1513047219933	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 9768, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1513047706638	geckodriver	INFO	geckodriver 0.19.1
+1513047706643	geckodriver	INFO	Listening on 127.0.0.1:55316
+1513047708721	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\caofei\\AppData\\Local\\Temp\\rust_mozprofile.3rWtqp4msWmX"
+1513047709215	Marionette	INFO	Enabled via --marionette
+1513047710172	Marionette	INFO	Listening on port 55322
+1513047710258	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513047710301	Marionette	DEBUG	Register listener.js for window 4294967297
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+[GPU 11516, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+for window 4294967297
+1513047747500	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513047747591	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513047747592	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_4644b13.js, line 4: ReferenceError: c is not defined
+1513047747807	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.baidu.com/"
+1513047747847	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.baidu.com/"
+1513047759434	geckodriver	INFO	geckodriver 0.19.1
+1513047759440	geckodriver	INFO	Listening on 127.0.0.1:55395
+1513047761486	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\caofei\\AppData\\Local\\Temp\\rust_mozprofile.bpLpH5HdH7nu"
+1513047761942	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 11072, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1513047762885	Marionette	INFO	Listening on port 55401
+1513047763021	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513047763064	Marionette	DEBUG	Register listener.js for window 4294967297
+1513047766121	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513047766228	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513047766228	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_4644b13.js, line 4: ReferenceError: c is not defined
+1513047766406	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.baidu.com/"
+1513047766455	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.baidu.com/"
+1513047782224	geckodriver	INFO	geckodriver 0.19.1
+1513047782230	geckodriver	INFO	Listening on 127.0.0.1:55434
+1513047784282	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\caofei\\AppData\\Local\\Temp\\rust_mozprofile.UyJttCtHpiCO"
+1513047784740	Marionette	INFO	Enabled via --marionette
+1513047785672	Marionette	INFO	Listening on port 55440
+1513047785813	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513047785856	Marionette	DEBUG	Register listener.js for window 4294967297
+1513047788911	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513047789028	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513047789028	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_4644b13.js, line 4: ReferenceError: c is not defined
+1513047789209	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.baidu.com/"
+1513047789248	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.baidu.com/"
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 484, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+[Child 4620, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1513048267762	geckodriver	INFO	geckodriver 0.19.1
+1513048267768	geckodriver	INFO	Listening on 127.0.0.1:55659
+1513048269805	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\caofei\\AppData\\Local\\Temp\\rust_mozprofile.lhEmWu9OxwRV"
+1513048270274	Marionette	INFO	Enabled via --marionette
+1513048271215	Marionette	INFO	Listening on port 55665
+1513048271331	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513048271374	Marionette	DEBUG	Register listener.js for window 4294967297
+1513048274432	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513048274527	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513048274527	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_4644b13.js, line 4: ReferenceError: c is not defined
+1513048274710	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.baidu.com/"
+1513048274761	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.baidu.com/"
+1513048276851	Marionette	DEBUG	Register listener.js for window 4294967301
+1513048276888	Marionette	DEBUG	Register listener.js for window 4294967304
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 4204, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+[Child 6672, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6672, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1513048347253	geckodriver	INFO	geckodriver 0.19.1
+1513048347259	geckodriver	INFO	Listening on 127.0.0.1:55753
+1513048349315	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\caofei\\AppData\\Local\\Temp\\rust_mozprofile.AcC7u5UeydUc"
+1513048349768	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 10344, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1513048350886	Marionette	INFO	Listening on port 55759
+1513048351342	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513048351382	Marionette	DEBUG	Register listener.js for window 4294967297
+1513048354427	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513048354511	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513048354511	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_4644b13.js, line 4: ReferenceError: c is not defined
+1513048354712	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.baidu.com/"
+1513048354753	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.baidu.com/"
+1513048356843	Marionette	DEBUG	Register listener.js for window 4294967301
+1513048356875	Marionette	DEBUG	Register listener.js for window 4294967304
+[Parent 10344, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1513049088062	geckodriver	INFO	geckodriver 0.19.1
+1513049088067	geckodriver	INFO	Listening on 127.0.0.1:56148
+1513049090110	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\caofei\\AppData\\Local\\Temp\\rust_mozprofile.ENbrM9isLtD0"
+1513049090587	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+[Child 3124, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1513049091513	Marionette	INFO	Listening on port 56155
+1513049091635	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513049091683	Marionette	DEBUG	Register listener.js for window 4294967297
+1513049094736	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513049094828	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513049094828	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_4644b13.js, line 4: ReferenceError: c is not defined
+1513049094989	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.baidu.com/"
+1513049095030	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.baidu.com/"
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+[Child 7552, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7552, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+1513049142919	geckodriver	INFO	geckodriver 0.19.1
+1513049142924	geckodriver	INFO	Listening on 127.0.0.1:56218
+1513049144967	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\caofei\\AppData\\Local\\Temp\\rust_mozprofile.5hm5bP2gV9gm"
+1513049145431	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+[Child 7260, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1513049146406	Marionette	INFO	Listening on port 56224
+1513049146506	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513049146569	Marionette	DEBUG	Register listener.js for window 4294967297
+1513049149620	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513049149717	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513049149717	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_4644b13.js, line 4: ReferenceError: c is not defined
+1513049150082	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.baidu.com/"
+1513049150135	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.baidu.com/"
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+[Child 3408, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8920, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+1513050210204	geckodriver	INFO	geckodriver 0.19.1
+1513050210209	geckodriver	INFO	Listening on 127.0.0.1:56403
+1513050212277	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\caofei\\AppData\\Local\\Temp\\rust_mozprofile.g6zQO7QWbLHb"
+1513050212751	Marionette	INFO	Enabled via --marionette
+1513050213672	Marionette	INFO	Listening on port 56409
+1513050213809	Marionette	WARN	TLS certificate errors will be ignored for this session
+1513050213852	Marionette	DEBUG	Register listener.js for window 4294967297
+1513050216908	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1513050217017	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1513050217017	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_4644b13.js, line 4: ReferenceError: c is not defined
+1513050217181	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.baidu.com/"
+1513050217223	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.baidu.com/"
+1513050221399	Marionette	DEBUG	Received DOM event "beforeunload" for "https://www.baidu.com/"
+1513050221466	Marionette	DEBUG	Received DOM event "pagehide" for "https://www.baidu.com/"
+1513050221468	Marionette	DEBUG	Received DOM event "unload" for "https://www.baidu.com/"
+1513050221617	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.baidu.com/"
+1513050221658	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.baidu.com/"
+Unable to read VR Path Registry from C:\Users\caofei\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 6672, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
