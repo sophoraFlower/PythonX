@@ -53,8 +53,8 @@ class ThirdPartySignOnByWB(unittest.TestCase):
                 # 输出待选择的窗口句柄
                 self.browser.switch_to.window(handle)
                 try:
-                    # 使用会员账号
-                    self.browser.find_element_by_xpath('//*[@id="userId"]').send_keys('5379619717')
+                    # 使用会员账号(zhanqitv2017@sina.com 2017@zhanqiTV)
+                    self.browser.find_element_by_xpath('//*[@id="userId"]').send_keys('zhanqitv2017@sina.com')
                     print('pass: input account success!')
                 except Exception as e:
                     print('Exception found:', format(e))
@@ -98,7 +98,14 @@ class ThirdPartySignOnByWB(unittest.TestCase):
         time.sleep(1)
         self.browser.refresh()
         time.sleep(2)
-        self.browser.quit()
+        # self.browser.quit()
+
+        self.browser.implicitly_wait(3)
+
+        self.browser.implicitly_wait(3)
+        self.browser.get('https://weibo.com/')
+        wb_title = self.browser.title
+        print('**********' + wb_title + '**********')
 
 
 if __name__ == "__main__":
