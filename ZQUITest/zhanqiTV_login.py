@@ -1,100 +1,104 @@
 # coding=utf-8
 from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
+import unittest
 import time
-driverOptions = webdriver.ChromeOptions()
-driverOptions.add_argument(r"user-data-dir=C:\Users\Houle\AppData\Local\Google\Chrome\User Data")
-browser = webdriver.Chrome('chromedriver', 0, driverOptions)
-browser.maximize_window()
-time.sleep(6)
 
-browser.get('https://www.zhanqi.tv/')
 
-# 获取当前窗口句柄
-now_handle = browser.current_window_handle
-print('@@@@@@@ ' + now_handle)
+class ThirdPartySignOnByWB(unittest.TestCase):
 
-# 获得cookie信息
-# cookie = browser.get_cookies()
-# print(cookie)
+    def setUp(self):
+        self.driverOptions = webdriver.ChromeOptions()
+        # home
+        # self.driverOptions.add_argument(r"user-data-dir=C:\Users\Houle\AppData\Local\Google\Chrome\User Data")
+        # work
+        self.driverOptions.add_argument(r"user-data-dir=C:\Users\caofei\AppData\Local\Google\Chrome\User Data")
+        self.browser = webdriver.Chrome('chromedriver', 0, self.driverOptions)
+        self.browser.maximize_window()
+        self.browser.implicitly_wait(3)
 
-# 遍历打印cookies中的name和value信息
-for cookie in browser.get_cookies():
-    print("%s -> %s" % (cookie['name'], cookie['value']))
+    def test_signOnByWB(self):
+        self.browser.get('https://www.zhanqi.tv/')
 
-try:
-    browser.find_element_by_xpath('/html/body/div[1]/div/div/div[2]/div[2]/div[1]/ul/li[1]/a/span').click()
-    print('pass: login window success!')
-except Exception as e:
-    print('Exception found:', format(e))
-time.sleep(2)
+        # 获取当前窗口句柄
+        self.now_handle = self.browser.current_window_handle
 
-# try:
-#     browser.find_element_by_xpath('/html/body/div[5]/div[2]/div[1]/div[2]/form/div[1]/div[2]/input').send_keys('15068899860')
-#     print('pass: input account success!')
-# except Exception as e:
-#     print('Exception found:', format(e))
-#
-# time.sleep(2)
-#
-# try:
-#     browser.find_element_by_xpath('/html/body/div[5]/div[2]/div[1]/div[2]/form/div[2]/div[2]/input').send_keys('zqcf666'
-#                                                                                                                )
-#     print('pass: input password success!')
-# except Exception as e:
-#     print('Exception found:', format(e))
-#
-# time.sleep(2)
+        # 获得cookie信息
+        # cookie = self.browser.get_cookies()
+        # print(cookie)
 
-try:
-    browser.find_element_by_xpath('/html/body/div[5]/div[2]/div[1]/div[2]/div/div/ul/li[3]/a/i[1]').click()
-    print('pass: wb login window success!')
-except Exception as e:
-    print('Exception found:', format(e))
-time.sleep(10)
+        # 遍历打印cookies中的name和value信息
+        # for cookie in browser.get_cookies():
+        #    print("%s -> %s" % (cookie['name'], cookie['value']))
 
-# 获取所有窗口句柄
-all_handles = browser.window_handles
-
-for handle in all_handles:
-    if handle == now_handle:
-        # 输出待选择的窗口句柄
-        print(handle)
-        browser.switch_to.window(handle)
-        # browser.find_element_by_xpath("//*[@id='menu_projects']/a").click()
         try:
-            browser.find_element_by_xpath('//*[@id="userId"]').send_keys('zjdxm@sina.cn')
-            print('pass: input account success!')
+            self.browser.find_element_by_xpath('/html/body/div[1]/div/div/div[2]/div[2]/div[1]/ul/li[1]/a/span').click()
+            print('pass: login window success!')
         except Exception as e:
             print('Exception found:', format(e))
         time.sleep(2)
 
         try:
-            browser.find_element_by_xpath('//*[@id="passwd"]').send_keys('**lwx520zjdxm**')
-            print('pass: input password success!')
+            self.browser.find_element_by_xpath('/html/body/div[5]/div[2]/div[1]/div[2]/div/div/ul/li[3]/a/i[1]').click()
+            print('pass: wb login window success!')
         except Exception as e:
             print('Exception found:', format(e))
-        time.sleep(2)
+        time.sleep(10)
 
+        # 获取所有窗口句柄
+        all_handles = self.browser.window_handles
+
+        for handle in all_handles:
+            if handle == self.now_handle:
+                # 输出待选择的窗口句柄
+                self.browser.switch_to.window(handle)
+                try:
+                    self.browser.find_element_by_xpath('//*[@id="userId"]').send_keys('zjdxm@sina.cn')
+                    print('pass: input account success!')
+                except Exception as e:
+                    print('Exception found:', format(e))
+                time.sleep(2)
+
+                try:
+                    self.browser.find_element_by_xpath('//*[@id="passwd"]').send_keys('**lwx520zjdxm**')
+                    print('pass: input password success!')
+                except Exception as e:
+                    print('Exception found:', format(e))
+                time.sleep(2)
+
+                try:
+                    self.browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/form/div/div[2]/div/p/a[1]').click(
+                    )
+                    print('pass: third-party sign on is success!')
+                    title = self.browser.title
+                    self.assertEqual(title, '网站连接 - 战旗直播平台', msg='第三方登陆失败!')
+                except Exception as e:
+                    print('Exception found:', format(e))
+                time.sleep(6)
+
+    def tearDown(self):
+        # 退出登录（可封装成公共方法）
+        ele = self.browser.find_element_by_link_text('账号')
+
+        # 鼠标移到悬停元素上
+        ActionChains(self.browser).move_to_element(ele).perform()
+        time.sleep(6)
         try:
-            browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/form/div/div[2]/div/p/a[1]').click()
-            print('pass: login success!')
+            self.browser.find_element_by_xpath('//*[@id="yp-btnLogout"]').click()
+            print('pass: sign out window success!')
         except Exception as e:
             print('Exception found:', format(e))
-        time.sleep(5)
+        self.browser.implicitly_wait(3)
+        try:
+            self.browser.find_element_by_xpath('/html/body/div[6]/div[2]/button[1]').click()
+            print('pass: sign out zhanqiTV success!')
+        except Exception as e:
+            print('Exception found:', format(e))
+        time.sleep(1)
+        self.browser.refresh()
+        time.sleep(2)
+        self.browser.quit()
 
-    # flash设置
-    # browser.get('chrome://settings/content/siteDetails?site=https://www.zhanqi.tv')
-    # browser.switch_to.frame('list-frame')
-    # flashSet = browser.find_element_by_id('permission').find_element_by_xpath('//*[@id="allow"]').click()
-    # time.sleep(2)
-    # browser.back()
 
-    # 关闭当前窗口
-    # browser.close()
-    # time.sleep(3)
-    # 输出主窗口句柄
-    # print('#######  ' + now_handle)
-    # # 返回主窗口
-    # browser.switch_to.window(now_handle)
-    # time.sleep(2)
-
+if __name__ == "__main__":
+    unittest.main()
