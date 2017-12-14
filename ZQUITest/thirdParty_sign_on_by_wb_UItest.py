@@ -4,6 +4,15 @@ from selenium.webdriver.common.action_chains import ActionChains
 import unittest
 import time
 
+'''
+    1.打开战旗直播首页（未登录）
+    2.使用第三方登录-微博账号登录（微博账号推荐新浪邮箱注册的账号，并绑定对应战旗账号）
+    3.登陆成功（不可频繁登录，微博这边容易封IP）
+    4.可进入战旗首页，做任意操作
+    5.可进去新浪微博首页，做任意操作
+    6.退出当前登录，并关闭浏览器
+'''
+
 
 class ThirdPartySignOnByWB(unittest.TestCase):
 
@@ -31,13 +40,15 @@ class ThirdPartySignOnByWB(unittest.TestCase):
         # for cookie in browser.get_cookies():
         #    print("%s -> %s" % (cookie['name'], cookie['value']))
 
+        # 打开登录窗口
         try:
             self.browser.find_element_by_xpath('/html/body/div[1]/div/div/div[2]/div[2]/div[1]/ul/li[1]/a/span').click()
             print('pass: login window success!')
         except Exception as e:
             print('Exception found:', format(e))
         time.sleep(2)
-
+        
+        # 跳转第三方-微博账号登录窗口
         try:
             self.browser.find_element_by_xpath('/html/body/div[5]/div[2]/div[1]/div[2]/div/div/ul/li[3]/a/i[1]').click()
             print('pass: wb login window success!')
@@ -52,6 +63,7 @@ class ThirdPartySignOnByWB(unittest.TestCase):
             if handle == self.now_handle:
                 # 切换页面
                 self.browser.switch_to.window(handle)
+                # 输入微博账号和密码
                 try:
                     # 使用会员账号(zhanqitv2017@sina.com 2017@zhanqiTV)
                     self.browser.find_element_by_xpath('//*[@id="userId"]').send_keys('zhanqitv2017@sina.com')
@@ -78,7 +90,7 @@ class ThirdPartySignOnByWB(unittest.TestCase):
                 time.sleep(6)
 
     def tearDown(self):
-        # 退出登录（可封装成公共方法）
+        # 退出登录
         ele = self.browser.find_element_by_link_text('账号')
 
         # 鼠标移到悬停元素上
@@ -99,12 +111,14 @@ class ThirdPartySignOnByWB(unittest.TestCase):
         self.browser.refresh()
         time.sleep(2)
 
-        self.browser.implicitly_wait(3)
+        # 进入新浪微博首页
+        # self.browser.implicitly_wait(3)
+        # self.browser.get('https://weibo.com/')
+        # wb_title = self.browser.title
+        # print('**********' + wb_title + '**********')
 
-        self.browser.implicitly_wait(3)
-        self.browser.get('https://weibo.com/')
-        wb_title = self.browser.title
-        print('**********' + wb_title + '**********')
+        # 关闭窗口和浏览器
+        self.browser.close()
         self.browser.quit()
 
 

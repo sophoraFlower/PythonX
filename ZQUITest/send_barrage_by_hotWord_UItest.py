@@ -1,15 +1,15 @@
 # coding=utf-8
 from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
 import unittest
 import time
 
 '''
     1.打开战旗直播首页
     2.选择第一个推荐位直播间，并进入
-    3.关掉提示
-    4.发送弹幕-热词*5（随机）
-    5.刷新页面，关闭浏览器
+    3.关掉引导提示（无的话直接进行下一步）
+    4.发送弹幕-逐一发送热词
+    5.判断热词弹幕是否发送成功
+    6.关闭浏览器
 '''
 
 
@@ -75,7 +75,7 @@ class SendBarrageByHotWord(unittest.TestCase):
             hot_word_lists[i].click()
             time.sleep(2)
 
-        # 弹幕断言
+        # 判断热词弹幕是否发送成功
         # myself_barrage_lists = self.browser.find_elements_by_class_name('js-chat-list-li myself')
         # mbr_lists_length = len(myself_barrage_lists)
         # for i in range(0, mbr_lists_length):
@@ -86,6 +86,8 @@ class SendBarrageByHotWord(unittest.TestCase):
         wb_title = self.browser.title
         print('**********' + wb_title + '**********')
         time.sleep(5)
+
+        # 关闭窗口和浏览器
         self.browser.close()
         self.browser.quit()
 
