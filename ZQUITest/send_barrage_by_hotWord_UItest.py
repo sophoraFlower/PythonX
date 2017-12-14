@@ -25,7 +25,7 @@ class SendBarrageByHotWord(unittest.TestCase):
         self.browser.maximize_window()
         self.browser.implicitly_wait(3)
 
-    def test_signOnByWB(self):
+    def test_SendBarrageByHotWord(self):
         self.browser.get('https://www.zhanqi.tv/')
 
         # 选定首页推荐位第一个直播间
