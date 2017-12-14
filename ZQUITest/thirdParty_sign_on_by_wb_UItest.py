@@ -50,7 +50,7 @@ class ThirdPartySignOnByWB(unittest.TestCase):
 
         for handle in all_handles:
             if handle == self.now_handle:
-                # 输出待选择的窗口句柄
+                # 切换页面
                 self.browser.switch_to.window(handle)
                 try:
                     # 使用会员账号(zhanqitv2017@sina.com 2017@zhanqiTV)
@@ -98,7 +98,6 @@ class ThirdPartySignOnByWB(unittest.TestCase):
         time.sleep(1)
         self.browser.refresh()
         time.sleep(2)
-        # self.browser.quit()
 
         self.browser.implicitly_wait(3)
 
@@ -106,6 +105,7 @@ class ThirdPartySignOnByWB(unittest.TestCase):
         self.browser.get('https://weibo.com/')
         wb_title = self.browser.title
         print('**********' + wb_title + '**********')
+        self.browser.quit()
 
 
 if __name__ == "__main__":
