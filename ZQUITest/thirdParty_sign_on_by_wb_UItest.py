@@ -1,16 +1,17 @@
 # coding=utf-8
 from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
 import unittest
 import time
 
 '''
+    依赖/前置条件：当前chrome浏览器未登录展期，第三方登录（微博）账号为新浪邮箱，且已绑定战旗手机账号
+    账号信息： 微博账号：account：zhanqitv2017@sina.com passwd: 2017@zhanqiTV
     1.打开战旗直播首页（未登录）
     2.使用第三方登录-微博账号登录（微博账号推荐新浪邮箱注册的账号，并绑定对应战旗账号）
-    3.登陆成功（不可频繁登录，微博这边容易封IP）
-    4.可进入战旗首页，做任意操作
-    5.可进去新浪微博首页，做任意操作
-    6.退出当前登录，并关闭浏览器
+    3.登陆成功
+    4.可进入战旗首页，做任意操作(UI测试)
+    5.可进去新浪微博首页，做任意操作(不可频繁登录，微博这边容易封IP)
+    6.关闭浏览器
 '''
 
 
@@ -18,6 +19,7 @@ class ThirdPartySignOnByWB(unittest.TestCase):
 
     def setUp(self):
         self.driverOptions = webdriver.ChromeOptions()
+        # 浏览器本地存储数据地址
         # home
         # self.driverOptions.add_argument(r"user-data-dir=C:\Users\Houle\AppData\Local\Google\Chrome\User Data")
         # work
@@ -79,35 +81,28 @@ class ThirdPartySignOnByWB(unittest.TestCase):
                     print('Exception found:', format(e))
                 time.sleep(2)
 
+                '''是否进入战旗主页'''
                 try:
                     self.browser.find_element_by_xpath('/html/body/div[1]/div/div[2]/form/div/div[2]/div/p/a[1]').click(
                     )
-                    print('pass: third-party sign on is success!')
+                    print('pass: into zhanqiTV page is success!')
                     title = self.browser.title
                     self.assertEqual(title, '网站连接 - 战旗直播平台', msg='第三方登陆失败!')
                 except Exception as e:
                     print('Exception found:', format(e))
-                time.sleep(6)
+                time.sleep(1)
+
+                '''是否登陆成功'''
+                try:
+                    login_ele = self.browser.find_elements_by_link_text('账号')
+                    print('pass: sign on zhanqiTV is success!')
+                    self.assertTrue(len(login_ele), msg='登录失败')
+                except Exception as e:
+                    print('Exception found:', format(e))
+                time.sleep(3)
 
     def tearDown(self):
-        # 退出登录
-        ele = self.browser.find_element_by_link_text('账号')
 
-        # 鼠标移到悬停元素上
-        ActionChains(self.browser).move_to_element(ele).perform()
-        time.sleep(6)
-        try:
-            self.browser.find_element_by_xpath('//*[@id="yp-btnLogout"]').click()
-            print('pass: sign out window success!')
-        except Exception as e:
-            print('Exception found:', format(e))
-        self.browser.implicitly_wait(3)
-        try:
-            self.browser.find_element_by_xpath('/html/body/div[6]/div[2]/button[1]').click()
-            print('pass: sign out zhanqiTV success!')
-        except Exception as e:
-            print('Exception found:', format(e))
-        time.sleep(1)
         self.browser.refresh()
         time.sleep(2)
 

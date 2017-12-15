@@ -4,6 +4,7 @@ import unittest
 import time
 
 '''
+    依赖：需要先执行thirdParty_sign_on_by_wb_UItest.py
     1.打开战旗直播首页
     2.选择第一个推荐位直播间，并进入
     3.关掉引导提示（无的话直接进行下一步）
@@ -17,9 +18,10 @@ class SendBarrageByHotWord(unittest.TestCase):
 
     def setUp(self):
         self.driverOptions = webdriver.ChromeOptions()
-        # home
+        # 浏览器本地存储数据地址:cookie等信息
+        # home chrome
         # self.driverOptions.add_argument(r"user-data-dir=C:\Users\Houle\AppData\Local\Google\Chrome\User Data")
-        # work
+        # work chrome
         self.driverOptions.add_argument(r"user-data-dir=C:\Users\caofei\AppData\Local\Google\Chrome\User Data")
         self.browser = webdriver.Chrome('chromedriver', 0, self.driverOptions)
         self.browser.maximize_window()
@@ -34,7 +36,7 @@ class SendBarrageByHotWord(unittest.TestCase):
             print('pass: select first BroadcastRoom success!')
         except Exception as e:
             print('Exception found:', format(e))
-        time.sleep(2)
+        time.sleep(4)
 
         # 进入该直播间
         try:
@@ -75,11 +77,7 @@ class SendBarrageByHotWord(unittest.TestCase):
             hot_word_lists[i].click()
             time.sleep(2)
 
-        # 判断热词弹幕是否发送成功
-        # myself_barrage_lists = self.browser.find_elements_by_class_name('js-chat-list-li myself')
-        # mbr_lists_length = len(myself_barrage_lists)
-        # for i in range(0, mbr_lists_length):
-        #     print(myself_barrage_lists[i].text)
+        '''判断热词弹幕是否发送成功'''
 
     def tearDown(self):
 
