@@ -4,12 +4,22 @@ import unittest
 import time
 
 '''
-    依赖/前置条件：已登录
-	1.进入战旗首页
-	2.进入个人中心 > 我的关注 
-	3.找到已关注主播（小乌云丶）
-	4.进入直播直播间
-	5.退出登录（可选），并关闭浏览器
+##########################################################
+#    module:  myFocus 小乌云丶
+#    abstract:
+#    description:
+#    ----------------------------------------------------
+#    依赖/前置条件：已登录
+#        1.进入战旗首页
+#        2.进入个人中心 > 我的关注 
+#        3.找到已关注主播（小乌云丶）
+#        4.进入直播直播间
+#        5.退出登录（可选），并关闭浏览器
+#    ----------------------------------------------------
+#    author: Written by caofei@bianfeng.com
+#    date: 2017/12/18
+#    update:
+##########################################################
 '''
 
 
@@ -27,15 +37,14 @@ class MyFocusWUYUN(unittest.TestCase):
         self.browser.implicitly_wait(3)
 
     def test_myFocusWUYUN(self):
+        # 进入战旗首页
         self.browser.get('https://www.zhanqi.tv/')
 
-        # 获取当前窗口句柄
-        self.now_handle = self.browser.current_window_handle
-
-        # 打开登录窗口
+        # 进入我的关注
         try:
-            self.browser.find_element_by_xpath('/html/body/div[1]/div/div/div[2]/div[2]/div[1]/ul/li[1]/a/span').click()
-            print('pass: login window success!')
+            self.browser.find_elements_by_link_text('关注').click()
+            print('pass: sign in my focus is success!')
+            self.assertTrue(len(login_ele), msg='登录失败')
         except Exception as e:
             print('Exception found:', format(e))
         time.sleep(2)
@@ -95,7 +104,7 @@ class MyFocusWUYUN(unittest.TestCase):
 
         self.browser.refresh()
         time.sleep(2)
-		
+
         # 关闭窗口和浏览器
         self.browser.close()
         self.browser.quit()
