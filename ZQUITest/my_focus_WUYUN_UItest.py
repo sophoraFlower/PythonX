@@ -4,18 +4,16 @@ import unittest
 import time
 
 '''
-    依赖/前置条件：当前chrome浏览器未登录展期，第三方登录（微博）账号为新浪邮箱，且已绑定战旗手机账号
-    账号信息： 微博账号：account：zhanqitv2017@sina.com passwd: 2017@zhanqiTV 15068890000
-    1.打开战旗直播首页（未登录）
-    2.使用第三方登录-微博账号登录（微博账号推荐新浪邮箱注册的账号，并绑定对应战旗账号）
-    3.登陆成功
-    4.可进入战旗首页，做任意操作(UI测试)
-    5.可进去新浪微博首页，做任意操作(不可频繁登录，微博这边容易封IP)
-    6.关闭浏览器
+    依赖/前置条件：已登录
+	1.进入战旗首页
+	2.进入个人中心 > 我的关注 
+	3.找到已关注主播（小乌云丶）
+	4.进入直播直播间
+	5.退出登录（可选），并关闭浏览器
 '''
 
 
-class ThirdPartySignOnByWB(unittest.TestCase):
+class MyFocusWUYUN(unittest.TestCase):
 
     def setUp(self):
         self.driverOptions = webdriver.ChromeOptions()
@@ -28,19 +26,11 @@ class ThirdPartySignOnByWB(unittest.TestCase):
         self.browser.maximize_window()
         self.browser.implicitly_wait(3)
 
-    def test_signOnByWB(self):
+    def test_myFocusWUYUN(self):
         self.browser.get('https://www.zhanqi.tv/')
 
         # 获取当前窗口句柄
         self.now_handle = self.browser.current_window_handle
-
-        # 获得cookie信息
-        # cookie = self.browser.get_cookies()
-        # print(cookie)
-
-        # 遍历打印cookies中的name和value信息
-        # for cookie in browser.get_cookies():
-        #    print("%s -> %s" % (cookie['name'], cookie['value']))
 
         # 打开登录窗口
         try:
@@ -105,13 +95,7 @@ class ThirdPartySignOnByWB(unittest.TestCase):
 
         self.browser.refresh()
         time.sleep(2)
-
-        # 进入新浪微博首页
-        # self.browser.implicitly_wait(3)
-        # self.browser.get('https://weibo.com/')
-        # wb_title = self.browser.title
-        # print('**********' + wb_title + '**********')
-
+		
         # 关闭窗口和浏览器
         self.browser.close()
         self.browser.quit()
