@@ -30,18 +30,18 @@ class EShopPropsBag(unittest.TestCase):
         self.driverOptions = webdriver.ChromeOptions()
         # 浏览器本地存储数据地址
         # home
-        # self.driverOptions.add_argument(r"user-data-dir=C:\Users\Houle\AppData\Local\Google\Chrome\User Data")
+        self.driverOptions.add_argument(r"user-data-dir=C:\Users\Houle\AppData\Local\Google\Chrome\User Data")
         # work
-        self.driverOptions.add_argument(r"user-data-dir=C:\Users\caofei\AppData\Local\Google\Chrome\User Data")
+        # self.driverOptions.add_argument(r"user-data-dir=C:\Users\caofei\AppData\Local\Google\Chrome\User Data")
         self.browser = webdriver.Chrome('chromedriver', 0, self.driverOptions)
         self.browser.maximize_window()
         self.browser.implicitly_wait(3)
 
-    # 当前账户战旗币数量
-    account_zq_money = 0
-
     def test_eShopPropsBag(self):
         self.browser.get('https://www.zhanqi.tv/')
+
+        # 当前账户战旗币数量
+        account_zq_money = 0
 
         # 个人战旗币数量查询
         login_ele = self.browser.find_elements_by_link_text('账号')
@@ -95,7 +95,7 @@ class EShopPropsBag(unittest.TestCase):
 
                 # 购买10打call礼包
                 try:
-                    self.browser.find_element_by_id('88').click()
+                    self.browser.find_element_by_css_selector('a[data-id="88"]').click()
                     print('pass: start buy call gift bag!')
                 except Exception as e:
                     print('Exception found:', format(e))
@@ -110,13 +110,16 @@ class EShopPropsBag(unittest.TestCase):
 
         # 切换回最初打开的窗口
         self.browser.switch_to.window(all_handles[0])
-        self.browser.close()
+        self.browser.refresh()
+        time.sleep(6)
 
         # 战旗币-1000
         account_rich_lists = self.browser.find_elements_by_class_name('js-user-left-rich-coin')
+        print(int(account_rich_lists[0].text))
+
         new_account_zq_money = int(account_rich_lists[0].text)
-        self.assertTrue(new_account_zq_money, msg="Error!")
-        # self.assertEqual(new_account_zq_money, account_zq_money-1000, msg="Error!")
+        # self.assertTrue(new_account_zq_money, msg="Error!")
+        self.assertEqual(new_account_zq_money, account_zq_money-1000, msg="Error!")
 
         # 打call礼包+1，数量+10
 
