@@ -30,9 +30,9 @@ class EShopPropsBag(unittest.TestCase):
         self.driverOptions = webdriver.ChromeOptions()
         # 浏览器本地存储数据地址
         # home
-        self.driverOptions.add_argument(r"user-data-dir=C:\Users\Houle\AppData\Local\Google\Chrome\User Data")
+        # self.driverOptions.add_argument(r"user-data-dir=C:\Users\Houle\AppData\Local\Google\Chrome\User Data")
         # work
-        # self.driverOptions.add_argument(r"user-data-dir=C:\Users\caofei\AppData\Local\Google\Chrome\User Data")
+        self.driverOptions.add_argument(r"user-data-dir=C:\Users\caofei\AppData\Local\Google\Chrome\User Data")
         self.browser = webdriver.Chrome('chromedriver', 0, self.driverOptions)
         self.browser.maximize_window()
         self.browser.implicitly_wait(3)

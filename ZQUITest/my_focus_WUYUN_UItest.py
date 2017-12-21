@@ -90,6 +90,8 @@ class MyFocusWUYUN(unittest.TestCase):
             else:
                 continue
 
+        # 查看直播间状态
+
     def tearDown(self):
         self.browser.execute_script("window.scrollTo(document.body.scrollWidth, 0);")
         self.browser.refresh()
