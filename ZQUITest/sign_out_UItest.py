@@ -44,7 +44,6 @@ class SignOut(unittest.TestCase):
         # 判断‘账号’按钮是否存在
         login_ele = self.browser.find_elements_by_link_text('账号')
         if len(login_ele) == 1:
-            # print(len(login_ele))
             '''退出登录'''
             # 鼠标移到悬停元素上
             ActionChains(self.browser).move_to_element(login_ele[0]).perform()
