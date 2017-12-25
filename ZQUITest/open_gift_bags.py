@@ -32,9 +32,9 @@ class OpenBagsGifts(unittest.TestCase):
         self.driverOptions = webdriver.ChromeOptions()
         # 浏览器本地存储数据地址:cookie等信息
         # home chrome
-        self.driverOptions.add_argument(r"user-data-dir=C:\Users\Houle\AppData\Local\Google\Chrome\User Data")
+        # self.driverOptions.add_argument(r"user-data-dir=C:\Users\Houle\AppData\Local\Google\Chrome\User Data")
         # work chrome
-        # self.driverOptions.add_argument(r"user-data-dir=C:\Users\caofei\AppData\Local\Google\Chrome\User Data")
+        self.driverOptions.add_argument(r"user-data-dir=C:\Users\caofei\AppData\Local\Google\Chrome\User Data")
         self.browser = webdriver.Chrome('chromedriver', 0, self.driverOptions)
         self.browser.maximize_window()
         self.browser.implicitly_wait(3)
@@ -77,7 +77,7 @@ class OpenBagsGifts(unittest.TestCase):
             print("***** " + prop_name + " ****** " + prop_num)
 
             # 此处需要优化，打开日常礼盒后，顺序发生变化，待修改
-            if prop_name in ['初级日常礼盒', '中级日常礼盒', '高级日常礼盒']:
+            if prop_name in ['初级日常礼盒', '中级日常礼盒', '高级日常礼盒', 'APP登录礼包']:
                 self.day_gift = True
                 self.browser.find_element_by_class_name('js-use-btn').click()
                 ibox_window = self.browser.find_element_by_class_name('iboxMsg')
