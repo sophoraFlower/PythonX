@@ -32,14 +32,11 @@
 
 - ```python
    sign_out_UItest.py：执行开始和结束各执行一次
+     ①、sign_out_UItest.py > 
+     ②、thirdParty_sign_on_by_wb_UItest.py > 
+     ③、send_barrage_by_hotWord_UItest.py > 
+     ④、sign_out_UItest.py
    ```
-  ```
-
-
-- ```python
-  sign_out_UItest.py > thirdParty_sign_on_by_wb_UItest.py > send_barrage_by_hotWord_UItest.py > sign_out_UItest.py
-  ```
-
 #### 公共方法（待完成，计划中）> 模块化
 
 - 清除cookie
@@ -58,11 +55,11 @@
 #### 应用计划（战旗）
 
 -  战旗任务日常
-- 直播间签到
-- 商城 > 道具 > 兑换“10打call礼包”（当战旗币大于8000）
-- 个人中心（战旗币、子弹、金币、关注主播、直播状态、浏览记录（清空））
-- 发送弹幕（特定弹幕）
-- 自动化执行
+-  直播间签到
+-  商城 > 道具 > 兑换“10打call礼包”（当战旗币大于8000）
+-  个人中心（战旗币、子弹、金币、关注主播、直播状态、浏览记录（清空））
+-  发送弹幕（特定弹幕）
+-  自动化执行
 
 ####  任务分解
 
