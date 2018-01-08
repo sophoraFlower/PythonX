@@ -20,7 +20,7 @@ else:
 
 browser.get("https://www.zhanqi.tv/games/pubg")
 browser.implicitly_wait(3)
-for i in range(0, 90):
+for i in range(0, 300):
     browser.implicitly_wait(2)
     filename = filePath + re.sub(r'[^0-9]', '', str(datetime.datetime.now())) + '.png'
     browser.get_screenshot_as_file(filename)
