@@ -69,7 +69,7 @@ class SendMail(object):
         # 发送邮件
         smtp.sendmail(self.msg['from'], toaddrs, self.msg.as_string())
         smtp.close()
-        print('sendmail success')
+        print('send mail success!')
 
 
 if __name__ == '__main__':

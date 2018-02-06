@@ -190,8 +190,11 @@ class Template_mixin(object):
     <title>%(title)s</title>
     <meta name="generator" content="%(generator)s"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/Chart.js/0.2.0/Chart.min.js"></script>
+    <!-- <link href="https://cdn.bootcss.com/echarts/3.8.5/echarts.common.min.js" rel="stylesheet">   -->
+    
     %(stylesheet)s
 </head>
 <body>
@@ -293,13 +296,12 @@ function showOutput(id, name) {
 %(heading)s
 %(report)s
 %(ending)s
+%(chart_script)s
 
 </body>
 </html>
 """
     # variables: (title, generator, stylesheet, heading, report, ending)
-
-
     # ------------------------------------------------------------------------
     # Stylesheet
     #
@@ -308,37 +310,36 @@ function showOutput(id, name) {
 
     STYLESHEET_TMPL = """
 <style type="text/css" media="screen">
-body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 100%; padding: 0 30px;}
-table       { font-size: 100%; }
-pre         { }
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 120%; padding: 0 60px;}
+table       { font-size: 120%; }
+pre         {  }
 
 /* -- heading ---------------------------------------------------------------------- */
-
 .heading {
-    margin-bottom: 1ex;
+    margin-bottom: 1px;
 }
 
 .heading h1 {
-	font-size: 18px;
-	font-weight: bold;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .heading .attribute {
-    margin-top: 1px;
+    margin-top: 2px;
     margin-bottom: 0;
 }
 
 .heading .description {
-    margin-top: 4px;
-    margin-bottom: 4px;
-	font-size: 14px;
-	font-weight: bold;
-	color: #444444;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-size: 21px;
+    font-weight: bold;
+    color: #444444;
 }
 
 p {
-    margin-top: 1px;
-    margin-bottom: 2px;
+    margin-top: 2px;
+    margin-bottom: 3px;
 }
 
 /* -- css div popup ------------------------------------------------------------------------ */
@@ -355,18 +356,20 @@ a.popup_link:hover {
     left: 0px;
     top: 0px;
     /*border: solid #627173 1px; */
-    padding: 10px;
+    padding: 8px;
     background-color: #E6E6D6;
     font-family: "Lucida Console", "Courier New", Courier, monospace;
     text-align: left;
-    font-size: 8px;
-    width: 500px;
+    font-size: 12px;
+    width: 600px;
 }
 
 }
 /* -- report ------------------------------------------------------------------------ */
-# #show_detail_line {
+#show_detail_line {
     # margin-top: 3ex;
+    # margin-bottom: 1ex;
+    # margin-left: 10px;
 # }
 #result_table {
     width: 100%;
@@ -377,6 +380,11 @@ a.popup_link:hover {
     font-weight: bold;
     color: white;
     background-color: #777;
+    # color: #606060;
+    # background-color: #f5f5f5;
+    # border-top-width: 10px;
+    # border-color: #d6e9c6;
+    # font-size: 12px;
 }
 #result_table td {
     border: 1px solid #777;
@@ -390,18 +398,39 @@ a.popup_link:hover {
 .failCase   { color: #c60; font-weight: bold; }
 .errorCase  { color: #c00; font-weight: bold; }
 .hiddenRow  { display: none; }
-.testcase   { margin-left: 2em; }
+.testcase   { margin-left: 2px; }
 
 
 /* -- ending ---------------------------------------------------------------------- */
 #ending {
 }
 
+/* -- chars ---------------------------------------------------------------------- */
+.testChars {margin-left: 150px;}
+
+.btn-info1 {
+    margin-top: 25px;
+    width: 55px;
+    color: #fff;
+    background-color: #6c6;
+    border-color: #6c6;
+}
+
+.btn-info2 {
+    width: 55px;
+    color: #fff;
+    background-color: #c60;
+    border-color: #c60;
+}
+
+.btn-info3 {
+    width: 55px;
+    color: #fff;
+    background-color: #c00;
+    border-color: #c00;
+}
 </style>
 """
-
-
-
     # ------------------------------------------------------------------------
     # Heading
     #
@@ -412,19 +441,70 @@ a.popup_link:hover {
 <p class='description'>%(description)s</p>
 </div>
 
-""" # variables: (title, parameters, description)
+<div style="float:left; margin-left: 10px;">
+    <a class="btn btn-xs btn-info1">Pass </a><br>
+    <a class="btn btn-xs btn-info2">Faild</a><br>
+    <a class="btn btn-xs btn-info3">Error</a><br>
+</div>
+
+<div class="testChars">
+    <canvas id="myChart" width="100" height="100"></canvas>
+</div>
+
+"""
+    # variables: (title, parameters, description)
+    # ------------------------------------------------------------------------
+    # Pie chart
+    #
+
+    ECHARTS_SCRIPT = """
+    <script type="text/javascript">
+var data = [
+    {
+        value: %(error)s,
+        color: "#c00",
+        label: "Error",
+        labelColor: 'white',
+        labelFontSize: '16'
+    },
+    {
+        value : %(fail)s,
+        color : "#c60",
+        label: "Fail",
+        labelColor: 'white',
+        labelFontSize: '16'
+    },
+    {
+        value : %(Pass)s,
+        color : "#6c6",
+        label : "Pass",
+        labelColor: 'white',
+        labelFontSize: '16'
+    }            
+]
+
+var newopts = {
+     animationSteps: 100,
+         animationEasing: 'easeInOutQuart',
+}
+
+//Get the context of the canvas element we want to select
+var ctx = document.getElementById("myChart").getContext("2d");
+
+var myNewChart = new Chart(ctx).Pie(data,newopts);
+
+</script>
+    """
 
     HEADING_ATTRIBUTE_TMPL = """<p class='attribute'><strong>%(name)s:</strong> %(value)s</p>
-""" # variables: (name, value)
-
-
-
+"""
+    # variables: (name, value)
     # ------------------------------------------------------------------------
     # Report
     #
 
     REPORT_TMPL = """
-<p id='show_detail_line'>
+<p id='show_detail_line' style="margin-left: 10px;">
 <a href='javascript:showCase(0)' class="btn btn-xs btn-primary">Summary</a>
 <a href='javascript:showCase(1)' class="btn btn-xs btn-danger">Failed</a>
 <a href='javascript:showCase(2)' class="btn btn-xs btn-info">All</a>
@@ -438,7 +518,7 @@ a.popup_link:hover {
 <col align='right' />
 <col align='right' />
 </colgroup>
-<tr id='header_row'>
+<tr id='header_row' class="panel-title">
     <td>Test Group/Test case</td>
     <td>Count</td>
     <td>Pass</td>
@@ -456,7 +536,8 @@ a.popup_link:hover {
     <td>&nbsp;</td>
 </tr>
 </table>
-""" # variables: (test_list, count, Pass, fail, error)
+"""
+    # variables: (test_list, count, Pass, fail, error)
 
     REPORT_CLASS_TMPL = r"""
 <tr class='%(style)s'>
@@ -468,8 +549,6 @@ a.popup_link:hover {
     <td><a href="javascript:showClassDetail('%(cid)s',%(count)s)">Detail</a></td>
 </tr>
 """ # variables: (style, desc, count, Pass, fail, error, cid)
-
-
     REPORT_TEST_WITH_OUTPUT_TMPL = r"""
 <tr id='%(tid)s' class='%(Class)s'>
     <td class='%(style)s'><div class='testcase'>%(desc)s</div></td>
@@ -492,23 +571,19 @@ a.popup_link:hover {
 
     </td>
 </tr>
-""" # variables: (tid, Class, style, desc, status)
-
-
+"""
+    # variables: (tid, Class, style, desc, status)
     REPORT_TEST_NO_OUTPUT_TMPL = r"""
 <tr id='%(tid)s' class='%(Class)s'>
     <td class='%(style)s'><div class='testcase'>%(desc)s</div></td>
     <td colspan='5' align='center'>%(status)s</td>
 </tr>
-""" # variables: (tid, Class, style, desc, status)
-
-
+"""
+    # variables: (tid, Class, style, desc, status)
     REPORT_TEST_OUTPUT_TMPL = r"""
 %(id)s: %(output)s
-""" # variables: (id, output)
-
-
-
+"""
+    # variables: (id, output)
     # ------------------------------------------------------------------------
     # ENDING
     #
@@ -519,6 +594,7 @@ a.popup_link:hover {
 
 
 TestResult = unittest.TestResult
+
 
 class _TestResult(TestResult):
     # note: _TestResult is a pure representation of results.
@@ -542,7 +618,6 @@ class _TestResult(TestResult):
         # )
         self.result = []
 
-
     def startTest(self, test):
         TestResult.startTest(self, test)
         # just one buffer for both stdout and stderr
@@ -553,7 +628,6 @@ class _TestResult(TestResult):
         self.stderr0 = sys.stderr
         sys.stdout = stdout_redirector
         sys.stderr = stderr_redirector
-
 
     def complete_output(self):
         """
@@ -567,13 +641,11 @@ class _TestResult(TestResult):
             self.stderr0 = None
         return self.outputBuffer.getvalue()
 
-
     def stopTest(self, test):
         # Usually one of addSuccess, addError or addFailure would have been called.
         # But there are some path in unittest that would bypass this.
         # We must disconnect stdout in stopTest(), which is guaranteed to be called.
         self.complete_output()
-
 
     def addSuccess(self, test):
         self.success_count += 1
@@ -631,16 +703,14 @@ class HTMLTestRunner(Template_mixin):
 
         self.startTime = datetime.datetime.now()
 
-
     def run(self, test):
         "Run the given test case or test suite."
         result = _TestResult(self.verbosity)
         test(result)
         self.stopTime = datetime.datetime.now()
         self.generateReport(test, result)
-        #print(sys.stderr, '\nTime Elapsed: %s' % (self.stopTime-self.startTime))
+        # print(sys.stderr, '\nTime Elapsed: %s' % (self.stopTime-self.startTime))
         return result
-
 
     def sortResult(self, result_list):
         # unittest does not seems to run in any particular order.
@@ -649,13 +719,12 @@ class HTMLTestRunner(Template_mixin):
         classes = []
         for n,t,o,e in result_list:
             cls = t.__class__
-            if not cls in rmap: 
+            if not cls in rmap:
                 rmap[cls] = []
                 classes.append(cls)
             rmap[cls].append((n,t,o,e))
         r = [(cls, rmap[cls]) for cls in classes]
         return r
-
 
     def getReportAttributes(self, result):
         """
@@ -678,7 +747,6 @@ class HTMLTestRunner(Template_mixin):
             ('Status', status),
         ]
 
-
     def generateReport(self, test, result):
         report_attrs = self.getReportAttributes(result)
         generator = 'HTMLTestRunner %s' % __version__
@@ -686,6 +754,7 @@ class HTMLTestRunner(Template_mixin):
         heading = self._generate_heading(report_attrs)
         report = self._generate_report(result)
         ending = self._generate_ending()
+        chart = self._generate_chart(result)
         output = self.HTML_TMPL % dict(
             title = saxutils.escape(self.title),
             generator = generator,
@@ -693,13 +762,12 @@ class HTMLTestRunner(Template_mixin):
             heading = heading,
             report = report,
             ending = ending,
+            chart_script = chart,
         )
         self.stream.write(output.encode('utf8'))
 
-
     def _generate_stylesheet(self):
         return self.STYLESHEET_TMPL
-
 
     def _generate_heading(self, report_attrs):
         a_lines = []
@@ -715,7 +783,6 @@ class HTMLTestRunner(Template_mixin):
             description = saxutils.escape(self.description),
         )
         return heading
-
 
     def _generate_report(self, result):
         rows = []
@@ -737,17 +804,17 @@ class HTMLTestRunner(Template_mixin):
             desc = doc and '%s: %s' % (name, doc) or name
 
             row = self.REPORT_CLASS_TMPL % dict(
-                style = ne > 0 and 'errorClass' or nf > 0 and 'failClass' or 'passClass',
-                desc = desc,
-                count = np+nf+ne,
-                Pass = np,
-                fail = nf,
-                error = ne,
-                cid = 'c%s' % (cid+1),
+                style=ne > 0 and 'errorClass' or nf > 0 and 'failClass' or 'passClass',
+                desc=desc,
+                count=np+nf+ne,
+                Pass=np,
+                fail=nf,
+                error=ne,
+                cid='c%s' % (cid+1),
             )
             rows.append(row)
 
-            for tid, (n,t,o,e) in enumerate(cls_results):
+            for tid, (n, t, o, e) in enumerate(cls_results):
                 self._generate_report_test(rows, cid, tid, n, t, o, e)
 
         report = self.REPORT_TMPL % dict(
@@ -759,6 +826,13 @@ class HTMLTestRunner(Template_mixin):
         )
         return report
 
+    def _generate_chart(self, result):
+        chart = self.ECHARTS_SCRIPT % dict(
+                Pass=str(result.success_count),
+                fail=str(result.failure_count),
+                error=str(result.error_count),
+                )
+        return chart
 
     def _generate_report_test(self, rows, cid, tid, n, t, o, e):
         # e.g. 'pt1.1', 'ft1.1', etc
@@ -823,6 +897,7 @@ class TestProgram(unittest.TestProgram):
         if self.testRunner is None:
             self.testRunner = HTMLTestRunner(verbosity=self.verbosity)
         unittest.TestProgram.runTests(self)
+
 
 main = TestProgram
 
