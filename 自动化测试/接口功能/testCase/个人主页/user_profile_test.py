@@ -31,8 +31,9 @@ class UserProfile(unittest.TestCase):
     """ 用户个人主页信息接口 """
 
     def setUp(self):
-        self.url = 'https://www.zhanqi.tv/api/user/profile'
-        my_log.info("--------------------------------------------------------------")
+        self.base = config.get_http_pc(name="base_url")
+        self.url = self.base + 'api/user/profile'
+        my_log.info('**** ' + self.url + ' ****')
 
     def test_user_profile_success(self):
         """ 获取成功 """

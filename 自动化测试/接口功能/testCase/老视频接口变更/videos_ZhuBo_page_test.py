@@ -31,8 +31,10 @@ class VideosZhuBoPage(unittest.TestCase):
     """ PC主播页面底部视频接口 """
 
     def setUp(self):
-        self.url = 'https://apis.zhanqi.tv/static/v2.2/video/recommend/'
-        my_log.info("--------------------------------------------------------------")
+        #  https://www.zhanqi.tv/api/static/v2.2/video/recommend/{uid}/{gameId}/{page}/{nums}.json
+        self.base = config.get_http_pc(name="base_url")
+        self.url = self.base + 'api/static/v2.2/video/recommend/'
+        my_log.info('**** ' + self.url + ' ****')
 
     def test_videosZhuBoPage_success(self):
         """ 获取成功 """

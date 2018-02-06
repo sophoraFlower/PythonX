@@ -1,14 +1,14 @@
-2018-02-06 12:17:40,538 - UserProfileMini - INFO - --------------------------------------------------------------
-2018-02-06 12:17:40,539 - UserProfileMini - INFO - 参数为空
-2018-02-06 12:17:41,025 - UserProfileMini - INFO - {
+2018-02-06 17:42:36,131 - UserProfileMini - INFO - **** https://www.zhanqi.tv/api/user/profile/mini ****
+2018-02-06 17:42:36,131 - UserProfileMini - INFO - 参数为空
+2018-02-06 17:42:36,381 - UserProfileMini - INFO - {
     "code": 1001,
     "message": "访问对象(UID)错误",
     "data": []
 }
-2018-02-06 12:17:41,025 - UserProfileMini - INFO - --------------------------------------------------------------
-2018-02-06 12:17:41,026 - UserProfileMini - INFO - --------------------------------------------------------------
-2018-02-06 12:17:41,026 - UserProfileMini - INFO - 获取成功
-2018-02-06 12:17:41,123 - UserProfileMini - INFO - {
+2018-02-06 17:42:36,381 - UserProfileMini - INFO - --------------------------------------------------------------
+2018-02-06 17:42:36,381 - UserProfileMini - INFO - **** https://www.zhanqi.tv/api/user/profile/mini ****
+2018-02-06 17:42:36,381 - UserProfileMini - INFO - 获取成功
+2018-02-06 17:42:36,490 - UserProfileMini - INFO - {
     "code": 0,
     "message": "SUCCESS",
     "data": {
@@ -33,18 +33,18 @@
         "isAnchor": 0
     }
 }
-2018-02-06 12:17:41,125 - UserProfileMini - INFO - --------------------------------------------------------------
-2018-02-06 12:17:41,126 - UserProfile - INFO - --------------------------------------------------------------
-2018-02-06 12:17:41,128 - UserProfile - INFO - 参数为空
-2018-02-06 12:17:41,219 - UserProfile - INFO - {
+2018-02-06 17:42:36,490 - UserProfileMini - INFO - --------------------------------------------------------------
+2018-02-06 17:42:36,506 - UserProfile - INFO - **** https://www.zhanqi.tv/api/user/profile ****
+2018-02-06 17:42:36,506 - UserProfile - INFO - 参数为空
+2018-02-06 17:42:36,599 - UserProfile - INFO - {
     "code": 1001,
     "message": "访问对象(UID)错误",
     "data": []
 }
-2018-02-06 12:17:41,219 - UserProfile - INFO - --------------------------------------------------------------
-2018-02-06 12:17:41,222 - UserProfile - INFO - --------------------------------------------------------------
-2018-02-06 12:17:41,226 - UserProfile - INFO - 获取成功
-2018-02-06 12:17:41,331 - UserProfile - INFO - {
+2018-02-06 17:42:36,599 - UserProfile - INFO - --------------------------------------------------------------
+2018-02-06 17:42:36,599 - UserProfile - INFO - **** https://www.zhanqi.tv/api/user/profile ****
+2018-02-06 17:42:36,599 - UserProfile - INFO - 获取成功
+2018-02-06 17:42:36,735 - UserProfile - INFO - {
     "code": 0,
     "message": "SUCCESS",
     "data": {
@@ -76,10 +76,10 @@
         "guard": []
     }
 }
-2018-02-06 12:17:41,338 - UserProfile - INFO - --------------------------------------------------------------
-2018-02-06 12:17:41,340 - RoomInfo - INFO - --------------------------------------------------------------
-2018-02-06 12:17:41,343 - RoomInfo - INFO - 获取成功
-2018-02-06 12:17:41,536 - RoomInfo - INFO - {
+2018-02-06 17:42:36,743 - UserProfile - INFO - --------------------------------------------------------------
+2018-02-06 17:42:36,746 - RoomInfo - INFO - **** https://apis.zhanqi.tv/static/v2.1/room/ ****
+2018-02-06 17:42:36,747 - RoomInfo - INFO - 获取成功
+2018-02-06 17:42:36,952 - RoomInfo - INFO - {
     "code": 0,
     "message": "OK",
     "data": {
@@ -115,7 +115,7 @@
         "addTime": "2015-04-22 14:37:39",
         "legal": 0,
         "flashvars": {
-            "Servers": "eyJsaXN0IjpbeyJpcCI6IjExOC4xOTAuMjAuMTY3IiwicG9ydCI6MTUwMTAsImlkIjo4NCwiY2hhdHJvb21faWQiOjg0fSx7ImlwIjoiMTIxLjQzLjE5Ni43NyIsInBvcnQiOjE1MDEwLCJpZCI6NDEsImNoYXRyb29tX2lkIjo0MX0seyJpcCI6IjExMi4xMjQuNjEuMTA2IiwicG9ydCI6MTUwMTAsImlkIjo0OCwiY2hhdHJvb21faWQiOjQ4fV19",
+            "Servers": "eyJsaXN0IjpbeyJpcCI6IjEyMC41NS4xMTYuMjE5IiwicG9ydCI6MTUwMTAsImlkIjo5OCwiY2hhdHJvb21faWQiOjk4fSx7ImlwIjoiMTE4LjE5MC4yMC4xNjciLCJwb3J0IjoxNTAxMCwiaWQiOjg0LCJjaGF0cm9vbV9pZCI6ODR9LHsiaXAiOiIxMjAuMjYuMTYuMzgiLCJwb3J0IjoxNTAxMCwiaWQiOjg3LCJjaGF0cm9vbV9pZCI6ODd9XX0=",
             "VideoLevels": "eyJzdHJlYW1VcmwiOiJodHRwOlwvXC9hbGhscy5jZG4uemhhbnFpLnR2XC96cWxpdmVcLzQwMTQ1X2NXY3JILm0zdTgifQ==",
             "cdns": "eyJ2aWQiOiI0MDE0NV9jV2NySCIsImJyb2Nhc3QiOiIwIiwiY2RucyI6MjAyLCJhaWRjZG5zIjoiNzJ8MjAyIiwib3V0Y2RucyI6IjQyIiwicmF0ZSI6IjIwMnwyMDIiLCJyZXZpZXciOiIxMyIsImxpbmVzIjpbWzAsMjAyLDIwMiwyMDJdLFswLDcyLDcyLDcyXSxbMCwyMDIsMjAyLDIwMl0sWzAsNDIsNzIsNzJdXSwibGluZU5hbWVzIjpbIlx1NGUzYlx1N2ViZiIsIlx1NTkwN1x1N2ViZjEiLCJcdTU5MDdcdTdlYmYyIiwiXHU2ZDc3XHU1OTE2Il0sInJhdGVOYW1lcyI6WyJcdTUzOWZcdTc1M2IiLCJcdThkODVcdTZlMDUiLCJcdTlhZDhcdTZlMDUiLCJcdTY4MDdcdTZlMDUiXX0=",
             "Status": 0,
@@ -126,7 +126,7 @@
             "VideoType": "LIVE",
             "GameId": 6,
             "Online": 0,
-            "pv": "20180206.01",
+            "pv": "20180206.02",
             "TuristRate": 1,
             "Gpu": 1,
             "GadObj": ""
@@ -164,7 +164,7 @@
             },
             "anchorCard": ""
         },
-        "follows": "987189",
+        "follows": "987182",
         "isStar": {
             "isWeek": 0,
             "isMonth": 0
@@ -182,15 +182,50 @@
         "firepower": 19273
     }
 }
-2018-02-06 12:17:41,557 - RoomInfo - INFO - --------------------------------------------------------------
-2018-02-06 12:17:41,560 - VideosZhuBoPage - INFO - --------------------------------------------------------------
-2018-02-06 12:17:41,562 - VideosZhuBoPage - INFO - 获取成功
-2018-02-06 12:17:41,773 - VideosZhuBoPage - INFO - {
+2018-02-06 17:42:36,966 - RoomInfo - INFO - --------------------------------------------------------------
+2018-02-06 17:42:36,974 - VideosZhuBoPage - INFO - **** https://www.zhanqi.tv/api/static/v2.2/video/recommend/ ****
+2018-02-06 17:42:36,974 - VideosZhuBoPage - INFO - 获取成功
+2018-02-06 17:42:37,086 - VideosZhuBoPage - INFO - {
     "code": 0,
     "message": "SUCCESS",
     "data": {
-        "cnt": "503",
+        "cnt": "504",
         "data": [
+            {
+                "id": "462083",
+                "uid": "100015330",
+                "gameId": "6",
+                "albumId": "0",
+                "mainCategoryId": "3",
+                "title": "电一王者继续冲分 (2018-02-06 17:15)",
+                "gender": "2",
+                "avatar": "https://img2.zhanqi.tv/avatar/7f/22c/100015330_1513085748.jpg",
+                "nickname": "weixiao",
+                "playUrl": "http://dlvod.cdn.zhanqi.tv/videonew/hls/special06/462083_100015330_20180206172321/462083_100015330_20180206172321.m3u8",
+                "spic": "https://img1.zhanqi.tv/video/special/20180206/special_462083_100015330_1517909335.jpg",
+                "bpic": "https://img1.zhanqi.tv/video/special/20180206/special-462083_100015330_1517909335_big.jpg",
+                "playCnt": 0,
+                "size": "3258868262",
+                "duration": "4294",
+                "shareCnt": "0",
+                "commentCnt": "0",
+                "zanCnt": "0",
+                "baseCnt": "0",
+                "multiplyCnt": "1",
+                "tags": "",
+                "docTag": "{\"resolution\": \"1920x1080\"}",
+                "protocol": "hls",
+                "videoDesc": "",
+                "weight": "0",
+                "createdAt": "2018-02-06 17:15:40",
+                "updatedAt": "2018-02-06 17:28:57",
+                "allowComment": "1",
+                "barrageUrl": "",
+                "url": "/v2/videos/462083.html",
+                "gameName": "英雄联盟",
+                "gameKey": "lol",
+                "gameUrl": "/games/lol"
+            },
             {
                 "id": "461112",
                 "uid": "100015330",
@@ -204,12 +239,12 @@
                 "playUrl": "http://dlvod.cdn.zhanqi.tv/videonew/hls/special06/461112_100015330_20180205225843/461112_100015330_20180205225843.m3u8",
                 "spic": "https://img1.zhanqi.tv/video/special/20180205/special_461112_100015330_1517843298.jpg",
                 "bpic": "https://img1.zhanqi.tv/video/special/20180205/special-461112_100015330_1517843298_big.jpg",
-                "playCnt": 316,
+                "playCnt": 501,
                 "size": "4477525737",
                 "duration": "5895",
                 "shareCnt": "0",
                 "commentCnt": "2",
-                "zanCnt": "9",
+                "zanCnt": "10",
                 "baseCnt": "0",
                 "multiplyCnt": "1",
                 "tags": "",
@@ -239,12 +274,12 @@
                 "playUrl": "http://dlvod.cdn.zhanqi.tv/videonew/hls/special06/460881_100015330_20180205204738/460881_100015330_20180205204738.m3u8",
                 "spic": "https://img2.zhanqi.tv/video/special/20180205/special_460881_100015330_1517835545.jpg",
                 "bpic": "https://img1.zhanqi.tv/video/special/20180205/special-460881_100015330_1517835545_big.jpg",
-                "playCnt": 431,
+                "playCnt": 597,
                 "size": "5531402215",
                 "duration": "7286",
                 "shareCnt": "0",
-                "commentCnt": "0",
-                "zanCnt": "6",
+                "commentCnt": "1",
+                "zanCnt": "9",
                 "baseCnt": "0",
                 "multiplyCnt": "1",
                 "tags": "",
@@ -255,7 +290,7 @@
                 "createdAt": "2018-02-05 20:06:34",
                 "updatedAt": "2018-02-05 20:59:07",
                 "allowComment": "1",
-                "barrageUrl": "",
+                "barrageUrl": "https://resource.zhanqi.tv/barrage_files/881/5a795cfce8bfb1517903100.json",
                 "url": "/v2/videos/460881.html",
                 "gameName": "英雄联盟",
                 "gameKey": "lol",
@@ -274,12 +309,12 @@
                 "playUrl": "http://dlvod.cdn.zhanqi.tv/videonew/hls/special06/460659_100015330_20180205182459/460659_100015330_20180205182459.m3u8",
                 "spic": "https://img1.zhanqi.tv/video/special/20180205/special_460659_100015330_1517826549.jpg",
                 "bpic": "https://img1.zhanqi.tv/video/special/20180205/special-460659_100015330_1517826549_big.jpg",
-                "playCnt": 249,
+                "playCnt": 337,
                 "size": "2444179190",
                 "duration": "3219",
                 "shareCnt": "0",
                 "commentCnt": "1",
-                "zanCnt": "3",
+                "zanCnt": "4",
                 "baseCnt": "0",
                 "multiplyCnt": "1",
                 "tags": "",
@@ -309,12 +344,12 @@
                 "playUrl": "http://dlvod.cdn.zhanqi.tv/videonew/hls/special06/460577_100015330_20180205171444/460577_100015330_20180205171444.m3u8",
                 "spic": "https://img2.zhanqi.tv/video/special/20180205/special_460577_100015330_1517822397.jpg",
                 "bpic": "https://img1.zhanqi.tv/video/special/20180205/special-460577_100015330_1517822397_big.jpg",
-                "playCnt": 383,
+                "playCnt": 481,
                 "size": "2818244228",
                 "duration": "3713",
                 "shareCnt": "0",
                 "commentCnt": "1",
-                "zanCnt": "8",
+                "zanCnt": "11",
                 "baseCnt": "0",
                 "multiplyCnt": "1",
                 "tags": "",
@@ -344,7 +379,7 @@
                 "playUrl": "http://dlvod.cdn.zhanqi.tv/videonew/hls/special06/459518_100015330_20180204223819/459518_100015330_20180204223819.m3u8",
                 "spic": "https://img1.zhanqi.tv/video/special/20180204/special_459518_100015330_1517755432.jpg",
                 "bpic": "https://img2.zhanqi.tv/video/special/20180204/special-459518_100015330_1517755432_big.jpg",
-                "playCnt": 860,
+                "playCnt": 899,
                 "size": "3408528660",
                 "duration": "4488",
                 "shareCnt": "0",
@@ -379,7 +414,7 @@
                 "playUrl": "http://dlvod.cdn.zhanqi.tv/videonew/hls/special06/459282_100015330_20180204205433/459282_100015330_20180204205433.m3u8",
                 "spic": "https://img2.zhanqi.tv/video/special/20180204/special_459282_100015330_1517749149.jpg",
                 "bpic": "https://img1.zhanqi.tv/video/special/20180204/special-459282_100015330_1517749149_big.jpg",
-                "playCnt": 692,
+                "playCnt": 717,
                 "size": "2771379574",
                 "duration": "3651",
                 "shareCnt": "0",
@@ -414,12 +449,12 @@
                 "playUrl": "http://dlvod.cdn.zhanqi.tv/videonew/hls/special06/459150_100015330_20180204200712/459150_100015330_20180204200712.m3u8",
                 "spic": "https://img1.zhanqi.tv/video/special/20180204/special_459150_100015330_1517746281.jpg",
                 "bpic": "https://img1.zhanqi.tv/video/special/20180204/special-459150_100015330_1517746281_big.jpg",
-                "playCnt": 643,
+                "playCnt": 672,
                 "size": "2424679499",
                 "duration": "3194",
                 "shareCnt": "0",
                 "commentCnt": "1",
-                "zanCnt": "2",
+                "zanCnt": "3",
                 "baseCnt": "0",
                 "multiplyCnt": "1",
                 "tags": "",
@@ -435,43 +470,8 @@
                 "gameName": "英雄联盟",
                 "gameKey": "lol",
                 "gameUrl": "/games/lol"
-            },
-            {
-                "id": "459013",
-                "uid": "100015330",
-                "gameId": "6",
-                "albumId": "0",
-                "mainCategoryId": "3",
-                "title": "电一王者继续冲分 (2018-02-04 18:11)",
-                "gender": "2",
-                "avatar": "https://img2.zhanqi.tv/avatar/7f/22c/100015330_1513085748.jpg",
-                "nickname": "weixiao",
-                "playUrl": "http://dlvod.cdn.zhanqi.tv/videonew/hls/special06/459013_100015330_20180204190643/459013_100015330_20180204190643.m3u8",
-                "spic": "https://img1.zhanqi.tv/video/special/20180204/special_459013_100015330_1517742478.jpg",
-                "bpic": "https://img1.zhanqi.tv/video/special/20180204/special-459013_100015330_1517742478_big.jpg",
-                "playCnt": 560,
-                "size": "624878216",
-                "duration": "823",
-                "shareCnt": "0",
-                "commentCnt": "0",
-                "zanCnt": "2",
-                "baseCnt": "0",
-                "multiplyCnt": "1",
-                "tags": "",
-                "docTag": "{\"resolution\": \"1920x1080\"}",
-                "protocol": "hls",
-                "videoDesc": "",
-                "weight": "0",
-                "createdAt": "2018-02-04 18:11:03",
-                "updatedAt": "2018-02-04 19:07:59",
-                "allowComment": "1",
-                "barrageUrl": "",
-                "url": "/v2/videos/459013.html",
-                "gameName": "英雄联盟",
-                "gameKey": "lol",
-                "gameUrl": "/games/lol"
             }
         ]
     }
 }
-2018-02-06 12:17:41,826 - VideosZhuBoPage - INFO - --------------------------------------------------------------
+2018-02-06 17:42:37,137 - VideosZhuBoPage - INFO - --------------------------------------------------------------

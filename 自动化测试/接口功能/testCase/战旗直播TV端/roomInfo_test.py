@@ -31,14 +31,15 @@ class RoomInfo(unittest.TestCase):
     """ 根据房间ID获取直播间信息 """
 
     def setUp(self):
-        self.roomid = '40145'
-        self.url = 'https://apis.zhanqi.tv/static/v2.1/room/' + self.roomid + '.json'
-        my_log.info("--------------------------------------------------------------")
+        self.base = config.get_http_mobile(name="mobile_base_url")
+        self.url = self.base + 'static/v2.1/room/'
+        my_log.info('**** ' + self.url + ' ****')
 
     def test_roomInfo_success(self):
         """ 获取成功 """
+        self.roomid = '40145'
         my_log.info("获取成功")
-        r = requests.post(self.url)
+        r = requests.post(self.url + self.roomid + '.json')
         self.response_data = r.json()
         self.assertEqual(self.response_data['code'], 0, msg='ERROR:获取失败')
         self.assertEqual(self.response_data['message'], 'OK', msg='ERROR:返回值错误')
