@@ -1,7 +1,7 @@
 import time
 import sys
 from HTMLTestRunner import HTMLTestRunner
-# from commentClass.SendEmail import SendMail
+from commentClass.SendEmail import SendMail
 import unittest
 sys.path.append('./testCase')
 
@@ -23,8 +23,8 @@ if __name__ == "__main__":
     fp.close()
 
     # 测试结束之后，执行邮件发送报告
-    # sendMail = SendMail()
-    # sendMail.send()
+    sendMail = SendMail()
+    sendMail.send()
 
 
 
