@@ -1,7 +1,7 @@
 import time
 import sys
 from HTMLTestRunner import HTMLTestRunner
-# from framework.SendEmail import SendMail
+from commentClass.SendEmail import SendMail
 import unittest
 sys.path.append('./testCase')
 
@@ -17,14 +17,14 @@ if __name__ == "__main__":
     HtmlFile = './testReports/' + now + '_result.html'
     fp = open(HtmlFile, 'wb')
     runner = HTMLTestRunner(stream=fp,
-                            title=u"战旗TV接口自动化测试报告",
-                            description=u"测试用例执行情况")
+                            title=u"PC端线上接口自动化测试报告",
+                            description=u"测试数据统计")
     runner.run(suite)
     fp.close()
 
     # 测试结束之后，执行邮件发送报告
-    # sendMail = SendMail()
-    # sendMail.send()
+    sendMail = SendMail()
+    sendMail.send()
 
 
 

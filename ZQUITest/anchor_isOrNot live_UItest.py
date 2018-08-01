@@ -50,7 +50,7 @@ class AnchorIsOrNotLive(unittest.TestCase):
 
         # 清除浏览记录
         print('clear watch record!')
-        self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight+50);")
         time.sleep(1)
         self.browser.find_element_by_link_text('清除全部').click()
         time.sleep(3)
