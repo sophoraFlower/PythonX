@@ -2,7 +2,8 @@
 import os
 import configparser
 
-configPath = os.path.abspath(os.path.dirname(os.getcwd())) + '\\config\\config_OnePlus5T.ini'
+# configPath = os.path.abspath(os.path.dirname(os.getcwd())) + '\\config\\config_Device.ini'
+configPath = os.path.abspath(os.curdir) + '\\config\\config_Device.ini'
 
 
 class ReadConfig:
@@ -15,8 +16,3 @@ class ReadConfig:
     def get_device_info(self, name):
         value = self.config.get("TestDeviceInfo", name)
         return value
-
-    # 邮件信息
-    # def get_email(self, name):
-    #     value = self.config.get("EMAIL", name)
-    #     return value
