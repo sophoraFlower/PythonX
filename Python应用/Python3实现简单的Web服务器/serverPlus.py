@@ -23,13 +23,13 @@ class CaseExistingFile(object):
     """该路径是文件"""
 
     def test(self, handler):
-        return not os.path.(handler.full_path)
+        return not os.path.isfile(handler.full_path)
 
     def act(self, handler):
-        raise handler.handle_file(handler.full_path)
+        handler.handle_file(handler.full_path)
 
 
-class CaseAlwaysfile(object):
+class CaseAlwaysFail(object):
     """所以情况都不符合的默认处理类"""
 
     def test(self, handler):
@@ -38,7 +38,9 @@ class CaseAlwaysfile(object):
     def act(self, handler):
         raise ServerException("Unknown object '{0}'".format(handler.path))
 
+
 class CaseDirectoryIndexFile(object):
+
     def index_path(self, handler):
         return os.path.join(handler.full_path, 'index.html')
 
@@ -48,7 +50,8 @@ class CaseDirectoryIndexFile(object):
 
     # 响应index.html的内容
     def act(self, handler):
-        raise handler.handle_file(self.index_path(handler))
+        handler.handle_file(self.index_path(handler))
+
 
 class RequestHandler(BaseHTTPRequestHandler):
     Page = '''\
@@ -74,12 +77,12 @@ class RequestHandler(BaseHTTPRequestHandler):
     </html>
     """
     # 所以可能的情况
-    Cases = [CaseNoFile(), CaseExistingFile(), CaseAlwaysfile(), CaseDirectoryIndexFile()]
+    Cases = [CaseNoFile(), CaseExistingFile(), CaseDirectoryIndexFile(), CaseAlwaysFail()]
 
     def do_GET(self):
         try:
             # 文件完整路径
-            full_path = os.getcwd() + self.path
+            self.full_path = os.getcwd() + self.path
 
             # 遍历所有的可能情况
             for case in self.Cases:
@@ -95,16 +98,16 @@ class RequestHandler(BaseHTTPRequestHandler):
         content = self.Error_Page.format(path=self.path, msg=msg)
         self.send_content(content.encode("utf-8"), 404)
 
-    def create_page(self):
-        values = {
-            'date_time': self.date_time_string(),
-            'client_host': self.client_address[0],
-            'client_port': self.client_address[1],
-            'command': self.command,
-            'path': self.path
-        }
-        page = self.Page.format(**values)
-        return page
+    # def create_page(self):
+    #     values = {
+    #         'date_time': self.date_time_string(),
+    #         'client_host': self.client_address[0],
+    #         'client_port': self.client_address[1],
+    #         'command': self.command,
+    #         'path': self.path
+    #     }
+    #     page = self.Page.format(**values)
+    #     return page
 
     def send_content(self, content, status=200):
         self.send_response(status)
