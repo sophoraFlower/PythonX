@@ -9,27 +9,27 @@ class ServerException(Exception):
     pass
     
     
-class CaseNoFile(object):
+class case_NoFile(object):
     """该路径不存在"""
 
     def test(self, handler):
         return not os.path.exists(handler.full_path)
 
     def act(self, handler):
-        raise ServerException("'{0}' not found".format(handler.path))
+        raise ServerException("'{0}' not found".format(handler.full_path))
 
 
-class CaseExistingFile(object):
+class case_ExistingFile(object):
     """该路径是文件"""
 
     def test(self, handler):
-        return not os.path.isfile(handler.full_path)
+        return os.path.isfile(handler.full_path)
 
     def act(self, handler):
         handler.handle_file(handler.full_path)
 
 
-class CaseAlwaysFail(object):
+class case_AlwaysFail(object):
     """所以情况都不符合的默认处理类"""
 
     def test(self, handler):
@@ -39,7 +39,7 @@ class CaseAlwaysFail(object):
         raise ServerException("Unknown object '{0}'".format(handler.path))
 
 
-class CaseDirectoryIndexFile(object):
+class case_DirectoryIndexFile(object):
 
     def index_path(self, handler):
         return os.path.join(handler.full_path, 'index.html')
@@ -54,19 +54,6 @@ class CaseDirectoryIndexFile(object):
 
 
 class RequestHandler(BaseHTTPRequestHandler):
-    Page = '''\
-    <html>
-    <body>
-    <table>
-    <tr>  <td>Header</td>         <td>Value</td>          </tr>
-    <tr>  <td>Date and time</td>  <td>{date_time}</td>    </tr>
-    <tr>  <td>Client host</td>    <td>{client_host}</td>  </tr>
-    <tr>  <td>Client port</td>    <td>{client_port}</td> </tr>
-    <tr>  <td>Command</td>        <td>{command}</td>      </tr>
-    <tr>  <td>Path</td>           <td>{path}</td>         </tr>
-    </table>
-    </body>
-    </html>'''
 
     Error_Page = """\
     <html>
@@ -76,13 +63,15 @@ class RequestHandler(BaseHTTPRequestHandler):
     </body>
     </html>
     """
+
     # 所以可能的情况
-    Cases = [CaseNoFile(), CaseExistingFile(), CaseDirectoryIndexFile(), CaseAlwaysFail()]
+    Cases = [case_NoFile(), case_ExistingFile(), case_DirectoryIndexFile(), case_AlwaysFail()]
 
     def do_GET(self):
         try:
             # 文件完整路径
-            self.full_path = os.getcwd() + self.path
+            # self.full_path = os.getcwd() + self.path
+            self.full_path = os.getcwd() + "\\"
 
             # 遍历所有的可能情况
             for case in self.Cases:
@@ -118,7 +107,9 @@ class RequestHandler(BaseHTTPRequestHandler):
 
     def handle_file(self, full_path):
         try:
+            print("########### " + full_path)
             with open(full_path, 'rb') as reader:
+                print("########### " + full_path)
                 content = reader.read()
             self.send_content(content)
         except IOError as msg:
