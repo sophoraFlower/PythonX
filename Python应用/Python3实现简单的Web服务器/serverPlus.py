@@ -1,14 +1,26 @@
 # coding=utf-8
 
 import os
+import subprocess
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 
 class ServerException(Exception):
     """服务器内部错误"""
     pass
-    
-    
+
+
+class case_CgiFile(object):
+    """脚本文件处理"""
+
+    def test(self, handler):
+        return os.path.isfile(handler.full_path) and handler.full_path.endswith('.py')
+
+    def act(self, handler):
+        # 运行脚本文件
+        handler.run_cgi(handler.full_path)
+
+
 class case_NoFile(object):
     """该路径不存在"""
 
@@ -65,7 +77,7 @@ class RequestHandler(BaseHTTPRequestHandler):
     """
 
     # 所以可能的情况
-    Cases = [case_NoFile(), case_ExistingFile(), case_DirectoryIndexFile(), case_AlwaysFail()]
+    Cases = [case_NoFile(), case_CgiFile(), case_ExistingFile(), case_DirectoryIndexFile(), case_AlwaysFail()]
 
     def do_GET(self):
         try:
@@ -115,6 +127,10 @@ class RequestHandler(BaseHTTPRequestHandler):
         except IOError as msg:
             msg = "'{0}' cannot be read: {1}".format(self.path, msg)
             self.handle_error(msg)
+
+    def run_cgi(self, full_path):
+        data = subprocess.check_output(["python", full_path], shell=False)
+        self.send_content(data)
 
 
 if __name__ == '__main__':
