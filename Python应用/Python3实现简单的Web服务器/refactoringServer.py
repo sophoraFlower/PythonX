@@ -52,7 +52,7 @@ class case_cgi_file(base_case):
     """可执行脚本"""
 
     def run_cgi(self, handler):
-        data = subprocess.check_output(["python3", handler.full_path],shell=False)
+        data = subprocess.check_output(["python3", handler.full_path], shell=False)
         handler.send_content(data)
 
     def test(self, handler):
