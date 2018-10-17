@@ -27,9 +27,12 @@ for i in range(randrange(5, 11)):
     dom = ''.join(choice(lc) for j in range(dlen))
     data = ('%s::%s@%s.%s::%d-%d-%d\n' % (dtstr, login, dom, choice(tlds), dtint, llen, dlen))
     week_day = dtstr[0:3]
-    pattTime = '^[A-Z][a-z]{2}\s[A-Z][a-z]{2}\s'   # '(^[A-Z][a-z]{2}\s){2}\s\s?(\d{2}:){3}\s[a-z]{4}::[a-z]+@[a-z]+\.[a-z]+::\d+-\d-\d'
+    pattTime = '^[A-Z][a-z]{2}\s[A-Z][a-z]{2}\s\s?\d{1,2}\s\d{2}:\d{2}:\d{2}\s\d{4}::[a-z]+@[a-z]+\.[a-z]+::\d{9,10}-' \
+               '\d{1}-\d{1,2}$'
+    print("----------------")
     print("###: " + data)
-    print("@@@: " + str(re.search(pattTime, data)))
+    print("@@@: " + str(re.search(pattTime, data).group()))
+    print("----------------")
     for m in range(6):
         if week_day == week[m]:
             week_days[m] = week_days[m]+1
