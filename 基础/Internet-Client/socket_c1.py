@@ -9,7 +9,7 @@ ADDR = (HOST, PORT)
 tcpCliSok = socket(AF_INET, SOCK_STREAM)      # 定义socket类型，网络通信，TCP
 tcpCliSok.connect(ADDR)       # 要连接的IP与端口
 while True:
-    data = input("> ")       # 与人交互，输入命令
+    data = input('>')       # 与人交互，输入命令
     if not data:
         break
     tcpCliSok.sendall(data.encode())      # 把命令发送给对端
