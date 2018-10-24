@@ -1,20 +1,37 @@
 # coding=utf-8
 
 import turtle
+import math
 
 
-def square(t, length, n):
-    for i in range(8):
+def polyline(t, n, length, angle):
+    for i in range(n):
         t.fd(length)
-        t.lt(360/n)
+        t.lt(angle)
 
 
-def circle(t, length, n):
-    t.polygon(t, length, n)
+def polygon(t, n, length):
+    angle = 360 / n
+    polyline(t, n, length, angle)
 
 
-bob = turtle.Turtle()
-# turtle.mainloop()
-# square(bob, 50, 8)
-circle(bob, 60, 5)
+def arc(t, r, angle):
+    arc_length = 2 * math.pi * r * angle / 360
+    n = int(arc_length / 3) + 1
+    step_length = arc_length / n
+    step_angle = angle / n
+
+    polyline(t, n, step_length, step_angle)
+
+
+def circle(t, r):
+    arc(t, r, 360)
+
+
+if __name__ == '__main__':
+    bob = turtle.Turtle()
+    # turtle.mainloop()
+    polygon(bob, 8, 60)
+    circle(bob, 100)
+    arc(bob, 66, 180)
 
