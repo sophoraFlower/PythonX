@@ -47,4 +47,4 @@ class WriteUserCommand:
 
 if __name__ == '__main__':
 	write_file = WriteUserCommand()
-	print write_file.get_value('user_info_2','bp')
+	print(write_file.get_value('user_info_2','bp'))
