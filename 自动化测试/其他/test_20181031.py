@@ -4,82 +4,80 @@ import os
 import re
 import json
 
-# file = open("foo.txt", "w")
-folder = "C:\\Users\\caofei\\Desktop\\ResultTest\\"
-dofolder = "C:\\Users\\caofei\\Desktop\\ResultTest\\do_"
+folder = "C:\\Users\\caofei\\Desktop\\Results\\UserGift\\"
+dofolder = "C:\\Users\\caofei\\Desktop\\Results\\UserGoldEnd\\do_"
 
 giftnaemlist = ["子弹", "666", "演员", "游戏手柄碎片", "打CALL", "游戏手柄", "大宝剑碎片", "改名卡", "Excuse me", "帝王套"]
-uidlist = [111369861, 111369862,
-           111369863, 111369864,
-           111369865, 111369866,
-           111369867, 111369868,
-           111369869, 111369870,
-           108474802, ]
-
-
 noresulterror = 0
-usererror = 0
+errorGift = 0
 
-# 各用户金币流水统计
+count666 = 0
+countZD = 0
+countYY = 0
+countYXSBSP = 0
+countDC = 0
+countYXSB = 0
+countDBJSP = 0
+countGMK = 0
+countEM = 0
+countDWT = 0
+
+# 用户金币流水统计
 for root1, dirs1, files1 in os.walk(folder):
     print(files1)
+    allgold = 0
     for file in files1:
-        if re.match('\d{8}-\d{4}_\d+\.json', file):
+        if re.match('^\d+\.json', file):
             fileobj = open(folder+file, 'r', encoding='utf-8')
             content = json.load(fileobj)
-            if content['data']['uid'] in uidlist:
-                resultfile = open(dofolder+str(content['data']['uid'])+'.txt', 'ab+')
-                resultfile.write(("nickname: " + content['data']['nickname'] + '\t').encode())
-                resultfile.write(("uid: " + str(content['data']['uid']) + '\t').encode())
-                resultfile.write(("account: " + content['data']['account'] + '\t').encode())
-                resultfile.write(("gold: " + str(content['data']['rich']['gold']) + '\t\n').encode())
-                resultfile.write('------------------------------------------------------------------'.encode())
-                resultfile.write('\n\n'.encode())
-                resultfile.close()
-            else:
-                resultfile = open(dofolder + 'usererror.txt', 'ab+')
-                usererror += 1
-                resultfile.write(("usererror: " + str(usererror) + '\n').encode())
-                resultfile.write('------------------------------------------------------------------'.encode())
-                resultfile.write('\n\n'.encode())
-                resultfile.close()
+            # resultfile = open(dofolder+'beginBag.txt', 'ab+')
+            gift = content['data']
+            # 礼物统计
+            giftlength = len(gift)
+            for i in range(0, giftlength):
+                if gift[i]["name"] == "666":
+                    count666 += int(gift[i]["count"])
+                elif gift[i]["name"] == "子弹":
+                    countZD += int(gift[i]["count"])
+                elif gift[i]["name"] == "游戏手柄":
+                    countYXSB += int(gift[i]["count"])
+                elif gift[i]["name"] == "Excuse me？":
+                    countEM += int(gift[i]["count"])
+                elif gift[i]["name"] == "打call（30天）":
+                    countDC += int(gift[i]["count"])
+                elif gift[i]["name"] == "帝王套":
+                    countDWT += int(gift[i]["count"])
+                elif gift[i]["name"] == "改名卡":
+                    countGMK += int(gift[i]["count"])
+                elif gift[i]["name"] == "游戏手柄碎片":
+                    countYXSBSP += int(gift[i]["count"])
+                elif gift[i]["name"] == "大宝剑碎片":
+                    countDBJSP += int(gift[i]["count"])
+                elif gift[i]["name"] == "演员":
+                    countYY += int(gift[i]["count"])
+                else:
+                    pass
+
+            # allgold += int(content['data']['rich']['gold'])
+            # resultfile.write(("gold: " + str(content['data']['rich']['gold']) + '\t\n').encode())
+            # resultfile.close()
+            # resultfile.write(("gold: " + str(content['data']['rich']['gold']) + '\t\n').encode())
+            # resultfile.close()
         else:
-            resultfile = open(dofolder + 'noresulterror.txt', 'ab+')
-            noresulterror += 1
-            resultfile.write(("noresulterror: " + str(noresulterror) + '\n').encode())
-            resultfile.write('------------------------------------------------------------------'.encode())
-            resultfile.write('\n\n'.encode())
-            resultfile.close()
+            pass
+            # resultfile = open(dofolder + 'errorGift.txt', 'ab+')
+            # errorGift += 1
+            # resultfile.write(("errorGoldBegin: " + str(errorGift) + '\n').encode())
+            # resultfile.close()
+    # print("#### " + str(allgold))
+    print(count666)
+    print(countZD)
+    print(countYY)
+    print(countYXSBSP)
+    print(countDC)
+    print(countYXSB)
+    print(countGMK)
+    print(countEM)
+    print(countDWT)
 
-
-# # 各用户礼物统计
-# for root2, dirs2, files2 in os.walk(folder):
-#     print(files2)
-#     for file in files2:
-#         if re.match('d+\.json', file):
-#             fileobj = open(folder+file, 'r', encoding='utf-8')
-#             content = json.load(fileobj)
-#             if content['data']['uid'] in uidlist:
-#                 resultfile = open(dofolder+str(content['data']['uid'])+'.txt', 'ab+')
-#                 resultfile.write(("nickname: " + content['data']['nickname'] + '\t').encode())
-#                 resultfile.write(("uid: " + str(content['data']['uid']) + '\t').encode())
-#                 resultfile.write(("account: " + content['data']['account'] + '\t').encode())
-#                 resultfile.write(("gold: " + str(content['data']['rich']['gold']) + '\t\n').encode())
-#                 resultfile.write('------------------------------------------------------------------'.encode())
-#                 resultfile.write('\n\n'.encode())
-#                 resultfile.close()
-#             else:
-#                 resultfile = open(dofolder + 'usererror.txt', 'ab+')
-#                 usererror += 1
-#                 resultfile.write(("usererror: " + str(usererror) + '\n').encode())
-#                 resultfile.write('------------------------------------------------------------------'.encode())
-#                 resultfile.write('\n\n'.encode())
-#                 resultfile.close()
-#         else:
-#             resultfile = open(dofolder + 'noresulterror.txt', 'ab+')
-#             noresulterror += 1
-#             resultfile.write(("noresulterror: " + str(noresulterror) + '\n').encode())
-#             resultfile.write('------------------------------------------------------------------'.encode())
-#             resultfile.write('\n\n'.encode())
-#             resultfile.close()
 
