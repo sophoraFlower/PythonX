@@ -63,14 +63,14 @@ def reverse_lookup(d, v):
 
 
 # 倒转字典
-def invert_dict(d):
+def invert_dict(df):
     inverse = dict()
-    for key in d:
-        val = d[key]
+    for key1 in df:
+        val = df[key1]
         if val not in inverse:
-            inverse[val] = [key]
+            inverse[val] = [key1]
         else:
-            inverse[val].append(key)
+            inverse[val].append(key1)
     return inverse
 
 
@@ -86,7 +86,66 @@ def example1():
         print("Running example1")
 
 
+# 元组
+print((0, 1, 2) < (0, 3, 4))
+print((0, 4, 2) < (0, 3, 4))
+print((0, 4, 5) < (0, 3, 4))
+
+# 值互换
+a1 = 8
+a2 = 7
+(a1, a2) = (a2, a1)
+print(a1)
+print(a2)
+
+# 内建函数 divmod 接受两个实参，返回包含两个值的元组：商和余数
+t = divmod(7, 3)
+print(t)
 
 
+# 元组作为返回值
+def min_max(x):
+    return min(x), max(x)
+
+
+# 列表和元组
+# zip是一个内建函数，可以接受将两个或多个序列组，并返回一个元组列表， 其中每个元组
+# 包含了各个序列中相对位置的一个元素
+
+s = 'abc'
+t = [0, 1, 2]
+# zip对象是迭代器的一种
+print(zip(s, t))  # <zip object at 0x0000009CB43DD448>
+# 迭代器：任何能够按照某个序列迭代的对象。 迭代器在某些方面与列表非常相似，
+# 但不同之处在于，你无法通过索引来选择迭代器中的某个元素
+
+
+# 遍历两个列表
+def has_match(t1, t2):
+    for x, y in zip(t1, t2):
+        if x == y:
+            return True
+    return False
+
+
+# 内建函数 enumerate
+for index, element in enumerate('abc'):
+    print(index, element)
+
+
+# 字典和元组
+d = {'a': 0, 'b': 1, 'c': 2}
+t = d.items()
+print(t)  # dict_items([('a', 0), ('b', 1), ('c', 2)])
+
+for key, value in d.items():
+    print(key, value)
+# a 0
+# b 1
+# c 2
+
+# dict和zip创建字典
+dd = dict(zip('abc', range(3)))
+print(dd)  # {'a': 0, 'b': 1, 'c': 2}
 
 
