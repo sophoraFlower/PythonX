@@ -32,3 +32,17 @@ def walk(dirname):
 
 
 walk('C:\\Users\\caofei\\Desktop\\Github\\PythonPractice')
+
+# 管道
+cmd = 'dir'
+fp = os.popen(cmd)
+res = fp.read()
+print(res)
+stat = fp.close()
+print(stat)  # None 表示正常结束
+
+# 内建函数 repr：接受任意一个对象作为参数，然后返回一个该对象的字符串表示。对于空白符号，它将用反斜杠序列表示
+s = '1 2\t 3\n 4'
+print(s)  # 1 2	 3 4
+print(repr(s))  # '1 2\t 3\n 4'
+
