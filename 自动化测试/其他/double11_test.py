@@ -14,11 +14,11 @@ import time
         则代码中的当前时间 = 真正的当前时间
 '''
 # 设置当前时间为 2018-11-06 18:59:00
-# url = 'http://beta.zhanqi.tv/api/actives/double11/setTime?datetime=2018-11-06%2018:59:00'
+# url = 'http://beta.zhanqi.tv/api/actives/double11/setTime?datetime=2018-11-08%2018:59:00'
 
 start_time = '18:28:00'
 end_time = '20:00:00'
-url = 'http://beta.zhanqi.tv/api/actives/double11/setTime?datetime=2018-11-06%20'
+url = 'http://beta.zhanqi.tv/api/actives/double11/setTime?datetime=2018-11-08%20'
 
 for i in range(0, 3000):
 
