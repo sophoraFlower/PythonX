@@ -1,6 +1,7 @@
 # coding=utf-8
 
 import copy
+import math
 
 
 # 类和对象
@@ -10,6 +11,7 @@ class Point:
 
 blank = Point()
 print(Point)  # <class '__main__.Point'>
+# 返回值是一个Point对象的引用
 print(blank)  # <__main__.Point object at 0x0000004F82319438>
 
 blank.x = 3.0
@@ -34,6 +36,20 @@ def find_center(rect):
     p.m = rect.corner.m + rect.width/2
     p.n = rect.corner.n + rect.height/2
     return p
+
+
+def distance_between_points(a1, a2):
+    length = math.sqrt((a1.x - a2.x)**2 + (a1.y - a2.y)**2)
+    return length
+
+
+p1 = Point()
+p2 = Point()
+p1.x = 3
+p1.y = 0
+p2.x = 0
+p2.y = 4
+print("#### " + str(distance_between_points(p1, p2)))
 
 
 box = Rectangle()
