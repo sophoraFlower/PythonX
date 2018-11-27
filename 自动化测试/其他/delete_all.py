@@ -8,7 +8,7 @@ url_del = 'http://beta.monkey.zhanqi.tv/proxy/badword.del'
 cookies = dict(PHPSESSID='v35gabu31hsrfk7t8s1ivgi416', ZQ_GUID='B75351F9-C8FA-3167-5CF2-5FF642772363',
                gid='1759383513', tj_uid='111369984')
 
-for j in range(235):
+for j in range(300):
     r = requests.post(url, data={'page': 1, 'type': 0, 'txt': None, 'flag': None}, cookies=cookies)
     badword_list = r.json()['data']['list']
     for i in range(len(badword_list)):
