@@ -5,8 +5,8 @@ import requests
 url = 'http://beta.monkey.zhanqi.tv/proxy/badword.list'
 url_del = 'http://beta.monkey.zhanqi.tv/proxy/badword.del'
 # url_list = 'http://beta.monkey.zhanqi.tv/proxy/badword.list'
-cookies = dict(PHPSESSID='a7v56me8l5hjf70bsdm8d96si2', ZQ_GUID='C3900FA5-88AA-4E6F-7251-B24DAA32D86E',
-               gid='1779337236', tj_uid='51')
+cookies = dict(PHPSESSID='tmcn7o3jh0gpb5ugi1gvd7l003', ZQ_GUID='62699101-171A-9DFE-FBB9-6AE39538D6E8',
+               gid='1744965237', tj_uid='111369985')
 r_all = requests.post(url, data={'page': 1, 'type': 0, 'txt': None, 'flag': None}, cookies=cookies)
 badword_length = int(r_all.json()['data']['pagination']['pageTotal'])
 print(badword_length)
