@@ -1,7 +1,7 @@
 # coding=utf-8
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
-import unittest
+from selenium.webdriver.common.keys import Keys
 import time
 
 '''
@@ -10,87 +10,87 @@ import time
 #    abstract: 
 #    description:
 #    ----------------------------------------------------
-#    依赖：已登录
-#        1.打开战旗直播首页
-#        2.选择第一个推荐位直播间，并进入
-#        3.打开背包
-#        4.查找打call礼物，存在就发送*30;不存在就关闭背包
+#        1.打开知乎登录页：https://www.zhihu.com/signup
+#        2.使用第三方登录：微博
+#        3.我关注的问题页面
+#        4.取关问题-遍历
 #        5.关闭浏览器（可选）
 #    ----------------------------------------------------
 #    author: Written by caofei@bianfeng.com
-#    date: 2017/12/21
+#    date: 2019/01/03
 #    update:
 ##########################################################
 '''
 
+driver = webdriver.Chrome()
+driver.maximize_window()
+driver.implicitly_wait(3)
 
-class BagsPropsSendCall(unittest.TestCase):
+# 登录知乎
+driver.get('https://www.zhihu.com/')
+driver.find_element_by_xpath('//*[@id="root"]/div/main/div/div/div/div[2]/div[2]/span').click()
+driver.find_element_by_class_name('Login-socialLogin').click()
+weibo_login = driver.find_element_by_class_name('Icon--weibo')
+ActionChains(driver).move_to_element(weibo_login).perform()
+time.sleep(2)
+weibo_login.click()
+# 输入微博账号和密码
+driver.find_element_by_xpath('//*[@id="userId"]').send_keys('zjdxm@sina.cn')
+print('input account success!')
+driver.find_element_by_xpath('//*[@id="passwd"]').send_keys('**lwx520zjdxm**')
+print('input password success!')
+driver.find_element_by_xpath('//*[@id="outer"]/div/div[2]/form/div/div[2]/div/p/a[1]').click()
+print('login start ...')
+try:
+    driver.find_element_by_xpath('//*[@id="outer"]/div/div[2]/form/div/div[2]/div/p/a[1]').click()
+    print('login start ...')
+except Exception as e:
+    print('Exception found:', format(e))
+try:
+    driver.find_element_by_xpath('//*[@id="outer"]/div/div[2]/form/div/div[2]/div/p/a[1]').click()
+    print('login start ...')
+except Exception as e:
+    print('Exception found:', format(e))
+time.sleep(6)
 
-    def setUp(self):
-        self.driverOptions = webdriver.ChromeOptions()
-        # 浏览器本地存储数据地址:cookie等信息
-        # home chrome
-        # self.driverOptions.add_argument(r"user-data-dir=C:\Users\Houle\AppData\Local\Google\Chrome\User Data")
-        # work chrome
-        self.driverOptions.add_argument(r"user-data-dir=C:\Users\caofei\AppData\Local\Google\Chrome\User Data")
-        self.browser = webdriver.Chrome('chromedriver', 0, self.driverOptions)
-        self.browser.maximize_window()
-        self.browser.implicitly_wait(3)
+allow = driver.find_element_by_xpath('//*[@id="outer"]/div/div[2]/div/div[2]/div[2]/p/a[1]')
+ActionChains(driver).move_to_element(allow).perform()
+driver.implicitly_wait(3)
+allow.click()
+driver.implicitly_wait(3)
 
-    def test_bagsPropsSendCall(self):
-        self.browser.get('https://www.zhanqi.tv/')
+driver.execute_script("window.scrollTo(0, 66);")
+driver.find_element_by_xpath('//*[@id="root"]/div/main/div/div/div[2]/div/div/div[4]/ul/li[2]/a/span[1]').click()
 
-        # 选定首页推荐位第一个直播间
-        self.browser.find_element_by_xpath('//*[@id="video_carousel"]/li[1]').click()
-        time.sleep(4)
-
-        # 进入该直播间
-        self.browser.find_element_by_xpath('//*[@id="BFPlayerID"]').click()
-        print('pass: into BroadcastRoom!')
-        self.browser.implicitly_wait(6)
-
-        # 关掉引导提示，无的话直接进入下一步
-        room_guide = self.browser.find_elements_by_class_name('im—room-guide')
-        if len(room_guide) != 0:
-            self.browser.find_element_by_xpath('//*[@id="js-right-chat-panel"]/div[2]/div[2]/a').click()
-        else:
-            pass
-        time.sleep(2)
-
-        # 打开背包
-        self.browser.find_element_by_xpath('//*[@id="js-room-gift-area"]/div/ul').click()
-
-        # 查找打call礼物，存在就发送*30;不存在就关闭背包
-        props = self.browser.find_elements_by_class_name('js-prop-item')
-        for i in range(0, len(props)):
-            # 鼠标移到悬停元素上
-            ActionChains(self.browser).move_to_element(props[i]).perform()
-            time.sleep(3)
-            prop_name = self.browser.find_element_by_class_name('js-prop-name').text
-            if prop_name == '打call':
-                prop_num = int(self.browser.find_element_by_class_name('js-prop-use-cnt-txt').text)
-                for j in range(0, prop_num):
-                    self.browser.find_element_by_class_name('js-use-btn').click()
-                    print("send gift is success! 0" + str(j))
-                    time.sleep(4)
-                    ActionChains(self.browser).move_to_element(props[i]).perform()
-                    if j == 30:
-                        break
-                    else:
-                        continue
-            else:
-                pass
-        self.browser.implicitly_wait(3)
-        self.browser.find_element_by_xpath('//*[@id="js-room-gift-area"]/div/ul').click()
-        time.sleep(2)
-
-    def tearDown(self):
-
-        # 关闭窗口和浏览器
-        self.browser.close()
-        self.browser.quit()
+windows = driver.window_handles
+driver.switch_to.window(windows[1])
+for i in range(753):
+    driver.execute_script("window.scrollTo(0, 66);")
+    driver.find_elements_by_class_name('QuestionItem-title')[0].find_element_by_tag_name('a').click()
+    time.sleep(2)
+    windows_new = driver.window_handles
+    driver.switch_to.window(windows_new[2])
+    cancel_follow = driver.find_element_by_class_name('Button--grey')
+    ActionChains(driver).move_to_element(cancel_follow).perform()
+    time.sleep(2)
+    if cancel_follow.is_displayed():
+        driver.find_element_by_class_name('Button--grey').click()
+    # driver.find_element_by_class_name('Button--primary').click()
+    # js = 'document.querySelectorAll("button")[0].style.display = "block";'
+    # driver.execute_script(js)
+    # cancel_follow = driver.find_element_by_class_name('FollowButton')
+    # driver.execute_script('arguments[0].click();', cancel_follow)
+    # ActionChains(driver).move_to_element(cancel_follow).perform()
+    # time.sleep(4)
+    # cancel_follow.send_keys(Keys.ENTER)
+    driver.refresh()
+    time.sleep(1)
+    driver.close()
+    driver.switch_to.window(windows_new[1])
+    driver.refresh()
+    time.sleep(1)
+    print('delete the ' + str(i) + ' page')
 
 
-if __name__ == "__main__":
-    unittest.main()
+
 
