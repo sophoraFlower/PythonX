@@ -26,4 +26,4 @@ class ReadIni:
 
 if __name__ == '__main__':
 	read_ini = ReadIni()
-	print read_ini.get_value("username","login_element")
+	print(read_ini.get_value("username","login_element"))
