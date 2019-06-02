@@ -1,13 +1,26 @@
 # coding:utf-8
 
 import requests
+import time
 
-url = 'https://beta.zhanqi.tv/api/user/charge/order'
-cookies = dict(PHPSESSID='4vjbsbbs4e91j64uu3153k39q8',
-               gid='1800728418', ZQ_GUID='B3CA2DA2-06AD-5689-6ECD-04A9700F3413', tj_uid='104265993',
-               taskTipCookie108474804='2019-03-18', cookie_ip='1944858858%2C1944858858')
-r_all = requests.post(url, data={'amount': 1000, }, cookies=cookies)
-string = str(r_all.content, 'utf-8')
-print(string)
-# print(r_all.headers)
+page_start = 0
+page_end = 1085
+other = 2700
 
+url = 'https://er.zhanqi.tv/proxy/funds.bullet_log_list'
+cookies = dict(PHPSESSID='9639bkednnjj6ctgak717okt76',
+               gid='1697940447', ZQ_GUID='86307684-2654-36D3-185F-A2B802020B70', tj_uid='111369973')
+count = 0
+for j in range(1085):
+    r_all = requests.post(url, data={'action': -1, 'channel': 177, 'nickname': None,
+                                     'startTime': '2019-05-22 00:00:00',
+                                     'endTime': '2019-05-30 23:59:59',
+                                     'page': j}, cookies=cookies)
+    j += 1
+    time.sleep(1)
+    for i in range(10):
+        count += int(r_all.json()["data"]["list"][i]["count"])
+    print(count)
+print(count)
+count = count + other
+print("all zidan:" + str(count))
