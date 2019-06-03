@@ -1,3 +1,4 @@
+# coding:utf8
 import time
 from appium import webdriver
 from PIL import Image
@@ -6,11 +7,16 @@ import os
 screenshotPath = ".//test.png"
 saveImagePath = ".//base.png"
 
+base_xpath = '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/'
+
 
 def into_notices_page():
-    driver.find_element_by_xpath('/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/'
-                                 'android.widget.FrameLayout/android.view.ViewGroup/android.support.v7.widget.LinearLayoutCompat/android.widget.HorizontalScrollView/android.widget.LinearLayout/'
-                                 'android.support.v7.app.a.c[5]').click()
+    """
+        进入我的页面
+
+    """
+    driver.find_element_by_xpath(base_xpath + 'android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.support.v7.widget.LinearLayoutCompat/'
+                                 'android.widget.HorizontalScrollView/android.widget.LinearLayout/android.support.v7.app.a.c[5]').click()
     time.sleep(0.5)
 
 
@@ -42,40 +48,47 @@ def get_position(word, img_name):
 
 
 def cancel_notices():
-    for i in range():
-        driver.find_element_by_xpath('/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/'
-                                     'android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.FrameLayout/'
-                                     'android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.widget.TextView[6]').click()
+    for i in range(795):
+        # 进入关注列表
+        driver.find_element_by_xpath(base_xpath + 'android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/'
+                                     'android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/'
+                                     'android.view.ViewGroup[1]/android.widget.TextView[6]').click()
         time.sleep(1)
-        driver.find_element_by_xpath('/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/'
-                                     'android.widget.FrameLayout/android.widget.FrameLayout[3]/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v4.view.ViewPager/'
-                                     'android.widget.FrameLayout/android.view.ViewGroup/android.support.v7.widget.RecyclerView/android.support.v7.widget.LinearLayoutCompat[1]').click()
-        time.sleep(1)
+        # 点击第一个关注的问题
+        driver.find_element_by_xpath(base_xpath + 'android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[3]/android.widget.FrameLayout/'
+                                                  'android.widget.RelativeLayout/android.support.v4.view.ViewPager/android.widget.FrameLayout/android.view.ViewGroup/'
+                                                  'android.support.v7.widget.RecyclerView/android.support.v7.widget.LinearLayoutCompat[1]').click()
+        time.sleep(2)
         driver.save_screenshot(screenshotPath)
-    imglement = driver.find_element_by_id("com.zhihu.android:id/question_header")  # 定位[已关注]按钮
-    location = imglement.location  # 获取元素X,Y的坐标
-    print(location)
-    size = imglement.size  # 获取元素的长宽
-    print(size)
-    # 指定位置坐标
-    rangle = (int(int(size['width'])*0.5), int(location['y'] + int(int(size['height'])*0.5)), int(size['width']), int(location['y'] + size['height']))
-    image = Image.open(screenshotPath)  # 打开截图
-    frame4 = image.crop(rangle)  # 使用image的crop函数，截取指定区域
-    frame4.save(saveImagePath)
-    recognition_img_txt(saveImagePath)
-    lists = get_position('已关注', saveImagePath)
-    print(lists)
-    driver.tap([(lists[0][1], lists[0][2]), (lists[-1][3], lists[-1][4])], 100)
-    frame4.close()
-    image.close()
+        imglement = driver.find_element_by_id("com.zhihu.android:id/question_header")  # 定位[已关注]按钮
+        location = imglement.location  # 获取元素X,Y的坐标
+        print(location)
+        size = imglement.size  # 获取元素的长宽
+        print(size)
+        # 指定位置坐标
+        rangle = (int(int(size['width'])*0.5), int(location['y'] + int(int(size['height'])*0.5)), int(size['width']), int(location['y'] + size['height']))
+        image = Image.open(screenshotPath)  # 打开截图
+        frame4 = image.crop(rangle)  # 使用image的crop函数，截取指定区域
+        frame4.save(saveImagePath)
+        recognition_img_txt(saveImagePath)
+        lists = get_position('已关注', saveImagePath)
+        print(lists)
+        print((int(0.5*size['width']) + int(lists[0][1]), int(location['y'] + size['height']) - int(lists[0][4])))
+        print((int(0.5*size['width']) + int(lists[-1][3]), int(location['y'] + size['height']) - int(lists[-1][2])))
+        # driver.tap([(int(0.5*size['width']) + int(lists[0][1]), int(location['y'] + size['height']) - int(lists[0][4])),
+        #             (int(0.5*size['width']) + int(lists[-1][3]), int(location['y'] + size['height']) - int(lists[-1][2]))], 100)
+        driver.tap([(int(0.5 * size['width']) + int(lists[0][1]) + 50, int(location['y'] + size['height']) - int(lists[0][4]) + 50)], 100)
 
-    time.sleep(1)
-    driver.press_keycode(4)
-    time.sleep(0.5)
-    driver.press_keycode(4)
+        frame4.close()
+        image.close()
 
-    time.sleep(6)
-    driver.quit()
+        time.sleep(2)
+        driver.press_keycode(4)
+        time.sleep(0.5)
+        driver.press_keycode(4)
+        time.sleep(2)
+
+    time.sleep(3)
 
 
 if __name__ == '__main__':
@@ -95,3 +108,4 @@ if __name__ == '__main__':
     time.sleep(6)
     into_notices_page()
     cancel_notices()
+    driver.quit()
