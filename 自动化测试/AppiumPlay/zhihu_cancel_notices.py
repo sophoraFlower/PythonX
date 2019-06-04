@@ -48,7 +48,7 @@ def get_position(word, img_name):
 
 
 def cancel_notices():
-    for i in range(795):
+    for i in range(100):
         # 进入关注列表
         driver.find_element_by_xpath(base_xpath + 'android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/'
                                      'android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/'
@@ -60,13 +60,16 @@ def cancel_notices():
                                                   'android.support.v7.widget.RecyclerView/android.support.v7.widget.LinearLayoutCompat[1]').click()
         time.sleep(2)
         driver.save_screenshot(screenshotPath)
-        imglement = driver.find_element_by_id("com.zhihu.android:id/question_header")  # 定位[已关注]按钮
+        # imglement = driver.find_element_by_id("com.zhihu.android:id/question_header")  # 定位[已关注]按钮
+        imglement = driver.find_element_by_id("root")
         location = imglement.location  # 获取元素X,Y的坐标
         print(location)
         size = imglement.size  # 获取元素的长宽
         print(size)
         # 指定位置坐标
-        rangle = (int(int(size['width'])*0.5), int(location['y'] + int(int(size['height'])*0.5)), int(size['width']), int(location['y'] + size['height']))
+        # rangle = (int(int(size['width'])*0.5), int(location['y'] + int(int(size['height'])*0.5)), int(size['width']), int(location['y'] + size['height']))
+        rangle = (int(int(size['width'])*0.5), int(location['y']), int(size['width']-10), int(location['y'] + size['height']))
+        print(rangle)
         image = Image.open(screenshotPath)  # 打开截图
         frame4 = image.crop(rangle)  # 使用image的crop函数，截取指定区域
         frame4.save(saveImagePath)
@@ -77,7 +80,7 @@ def cancel_notices():
         print((int(0.5*size['width']) + int(lists[-1][3]), int(location['y'] + size['height']) - int(lists[-1][2])))
         # driver.tap([(int(0.5*size['width']) + int(lists[0][1]), int(location['y'] + size['height']) - int(lists[0][4])),
         #             (int(0.5*size['width']) + int(lists[-1][3]), int(location['y'] + size['height']) - int(lists[-1][2]))], 100)
-        driver.tap([(int(0.5 * size['width']) + int(lists[0][1]) + 50, int(location['y'] + size['height']) - int(lists[0][4]) + 50)], 100)
+        driver.tap([(int(0.5*size['width']) + int(lists[0][1]) + 100, int(location['y'] + size['height']) - int(lists[0][4]) + 50)], 100)
 
         frame4.close()
         image.close()
