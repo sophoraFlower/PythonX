@@ -1,9 +1,10 @@
 # 实现链表的逆序
 
+
 class Node(object):
     """Represents a singly linked node."""
 
-    def __init__(self, data, next = None):
+    def __init__(self, data, next=None):
         self.data = data
         self.next = next
 
@@ -26,6 +27,7 @@ target = head
 targetItem = 4
 while target != None and targetItem != target.data:
     target = target.next
+
 if target != None:
     print("4 is in")
 else:
@@ -48,6 +50,7 @@ while probe != None:
     print(probe.data)
     probe = probe.next
 
+
 # 删除操作（开始处、结尾处、中间I）
 def removedItem(index, head):
     if index <= 0 or head.next is None:
@@ -62,6 +65,7 @@ def removedItem(index, head):
         removedValue = probe.next.data
         probe.next = probe.next.next
         return removedValue
+
 
 removedItem(8, head)
 probe = head
