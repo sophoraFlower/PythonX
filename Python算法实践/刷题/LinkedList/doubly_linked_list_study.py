@@ -19,9 +19,10 @@ class DoublyLinkedList:
         self.head = node
 
     def list_print(self, node):
-        while node is not None:
-            print(node.data)
-            node = node.next
+        self.head = node
+        while self.head is not None:
+            print(self.head.data)
+            self.head = self.head.next
 
     def insert(self, prev_node, value):
         if prev_node is None:
