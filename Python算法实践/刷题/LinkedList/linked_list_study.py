@@ -4,21 +4,15 @@ class Node:
         self.next = next_node
 
 
-head = None
-for count in range(3):
-    head = Node(count, head)
-# while head is not None:
-#     print(head.data)
-#     head = head.next
+head1 = None
+for i in range(1, 6):
+    count = 6 - i
+    head1 = Node(count, head1)
 
-"""
-index = 5
-probe = head
-while index > 0:
-    probe = probe.next
-    index -= 1
-print(probe.data)
-"""
+head2 = None
+for j in range(10, 15):
+    count = 25 - j
+    head2 = Node(count, head2)
 
 
 # 迭代
@@ -73,28 +67,60 @@ def reverse_linked_list4(linked_list):
     return prev
 
 
+# 反转链表测试
 # reverse_linked_list_ = reverse_linked_list4(head)
 # while reverse_linked_list_ is not None:
 #     print(reverse_linked_list_.data)
 #     reverse_linked_list_ = reverse_linked_list_.next
 
-
-def swap_pairs(linked_list):
-    if not linked_list or not linked_list.next:
-        return linked_list
-    elif not linked_list.next.next:
-        temp = linked_list
-        linked_list = linked_list.next
-        linked_list.next = temp
-        temp.next = None
-        return linked_list
+# 合并两个有序链表
+def merge_two_list(h1, h2):
+    if h1 is None and h2 is None:
+        return None
+    elif h1 is None:
+        return h2
+    elif h2 is None:
+        return h1
+    elif h1.data <= h2.data:
+        h1.next = merge_two_list(h1.next, h2)
+        return h1
     else:
-        cur_list = linked_list.next.next
-        new_list = swap_pairs(cur_list)
-        return new_list
+        h2.next = merge_two_list(h1, h2.next)
+        return h2
 
 
-swap_linked_list = swap_pairs(head)
-while swap_linked_list is not None:
-    print(swap_linked_list.data)
-    swap_linked_list = swap_linked_list.next
+head3 = merge_two_list(head1, head2)
+# while head3:
+#     print(head3.data)
+#     head3 = head3.next
+
+# 在两个数据节点之间插入链表
+head4 = None
+for count in range(6, 11):
+    head4 = Node(count, head4)
+
+node_value = 5
+
+
+def insert_node(data, h1, h2):
+    if h1 is None and h2 is None:
+        return
+    elif h1 is None:
+        return h2
+    elif h2 is None:
+        return h1
+    elif h1.data != data:
+        h1.next = insert_node(data, h1.next, h2)
+        return h1
+    else:
+        temp = h1.next
+        h1.next = h2
+        h2.next = insert_node(data, h2.next, temp)
+        return h1
+
+
+head4 = reverse_linked_list1(head4)
+head5 = insert_node(node_value, head3, head4)
+while head5:
+    print(head5.data)
+    head5 = head5.next
