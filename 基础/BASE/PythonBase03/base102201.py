@@ -1,3 +1,6 @@
+
+'''
+
 a = [1]
 b = [1]
 print(a == b)    # True
@@ -10,4 +13,6 @@ print(t1 is t2)    # False
 
 t1[-1].append(5)
 print(t1 == t2)    # False
+'''
+
 
