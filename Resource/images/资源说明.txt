@@ -1,0 +1,7 @@
+按各项目主要分类创建对应的图片等资源的文件夹～
+* ProgramBasic
+* ScientificData
+* ML
+* Crawler
+* Automation
+* ImageProcess
