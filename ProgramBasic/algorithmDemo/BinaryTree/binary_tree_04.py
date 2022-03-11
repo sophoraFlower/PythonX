@@ -84,19 +84,24 @@ def in_order_traversal_with_stack(node):
 
 
 def post_order_traversal_with_stack(node):
+    if not node:
+        return []
     stack = []
-    while node is not None or len(stack) > 0:
+    while node is not None or len(stack):
         while node is not None:
             stack.append(node)
             if node.leftChild:
                 node = node.leftChild
-                if node:
-                    print(node.data)
             else:
                 node = node.rightChild
-                if node:
-                    print(node.data)
-        node = stack.pop()
+            # 出栈的条件是当前节点为叶子结点
+        cur = stack.pop()
+        print(cur.data)
+        # 重要判断：如果当前栈顶节的左节点为刚出栈的节点，则转向遍历右子树（当前栈顶节点的右子树）
+        if stack and stack[-1].leftChild == cur:
+            node = stack[-1].rightChild
+        else:
+            node = None
     return node
 
 
