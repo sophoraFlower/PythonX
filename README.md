@@ -1,6 +1,8 @@
 # Python
 
-> 哪条路、哪道水，没有关联。哪阵风、哪片云，没有呼应。我们走过的城市、山川，都化成了我们的生命。
+> 缓慢的、持久的、有纪律的努力，最终会导致令人难以置信的結果。每当我无法忍受日常生
+活时，我就提醒自己，没有什么比每天坚持做下去更重要了。虽然我很难看到未来会怎样。但我
+知道持久性具有强大的威力，就像一句古老格言说的-“继续去做”（keep doing）
 
 ## 应用方向
 
@@ -27,5 +29,3 @@
 ### ImageProcess
 
 > Python有许多库可用于图像处理，如numpy、scipy、scikit-image、PIL（Pillow)、OpenCV、scikit-learn、SimpleITK和matplotlib。 matplotlib库主要用于图像显示，而numpy主要用于图像存储，scikit-learn库构建用于图像处理的机器学习模型，scipy主要用于图像增强，scikit-image、mahotas和opencv库用于不同的图像处理算法。
-
-# 
