@@ -1,7 +1,7 @@
 import pylru
 
-from ProgramBasic.programBasic.base_13 import main
-from ProgramBasic.programBasic.base_15 import BOWInvertedIndexEngine
+from ProgramBasic.programBasic.base.base_13 import main
+from ProgramBasic.programBasic.base.base_15 import BOWInvertedIndexEngine
 
 
 class LRUCache(object):

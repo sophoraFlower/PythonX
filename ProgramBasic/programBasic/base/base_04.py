@@ -15,11 +15,11 @@ def parse(text_doc):
     return sorted_word_cnt
 
 
-with open('in.txt') as fin:
+with open('../in.txt') as fin:
     text = fin.read()
 
 word_and_freq = parse(text)
 
-with open('out.txt', 'w') as fout:
+with open('../out.txt', 'w') as fout:
     for word, freq in word_and_freq:
         fout.write('{} {}\n'.format(word, freq))

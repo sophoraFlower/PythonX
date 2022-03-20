@@ -1,6 +1,6 @@
 import re
 
-from ProgramBasic.programBasic.base_13 import main, SearchEngineBase
+from ProgramBasic.programBasic.base.base_13 import main, SearchEngineBase
 
 
 class BOWEngine(SearchEngineBase):
